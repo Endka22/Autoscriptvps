@@ -189,6 +189,12 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 #OpenVPN
 wget https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
 
+#Edu
+wget https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/edu.sh &&  chmod +x edu.sh && ./edu.sh
+
+#Edu-Tls
+wget https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/edu-tls.sh &&  chmod +x edu-tls.sh && ./edu-tls.sh
+
 # install fail2ban
 apt -y install fail2ban
 
@@ -281,8 +287,9 @@ wget -O wgg "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/wgg.sh
 wget -O trj "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/trj.sh"
 wget -O wss "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/wss.sh"
 wget -O vls "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/vls.sh"
-wget -O updatee "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/updatee.sh"
-wget -O auto-reboot "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/auto-reboot.sh"
+wget -O updatee "https://raw.githubuserconten2/Autoscriptvps/main/updatee.sh"
+wget -O auto-reboot "https://raw.githubuserconten2/Autoscriptvps/main/auto-reboot.sh"
+wget -O clear-log "https://raw.githubuserconten2/Autoscriptvps/main/clear-log.sh"
 chmod +x add-host
 chmod +x menu
 chmod +x usernew
@@ -323,7 +330,7 @@ chmod +x wss
 chmod +x vls
 chmod +x updatee
 chmod +x auto-reboot
-echo "0 5 * * * root clear-log && reboot" >> /etc/crontab
+echo "0 0 * * * root clear-log && reboot" >> /etc/crontab
 echo "0 0 * * * root xp" >> /etc/crontab
 # remove unnecessary files
 cd
