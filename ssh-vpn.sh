@@ -180,7 +180,7 @@ connect = 127.0.0.1:1194
 
 [openvpn]
 accept = 2095
-connect = 127.0.0.1:3128
+connect = 127.0.0.1:1194
 
 END
 
