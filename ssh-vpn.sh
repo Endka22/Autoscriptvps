@@ -178,6 +178,10 @@ connect = 127.0.0.1:22
 accept = 442
 connect = 127.0.0.1:1194
 
+[openvpn]
+accept = 2095
+connect = 127.0.0.1:3128
+
 END
 
 # make a certificate
@@ -198,6 +202,9 @@ wget https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/edu.sh &&  chm
 
 #Edu-Tls
 wget https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/edu-tls.sh &&  chmod +x edu-tls.sh && ./edu-tls.sh
+
+#Edu-ovpn
+wget https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/edu-ovpn.sh &&  chmod +x edu-ovpn.sh && ./edu-ovpn.sh
 
 # install fail2ban
 apt -y install fail2ban
