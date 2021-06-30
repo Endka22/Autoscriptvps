@@ -330,6 +330,7 @@ chmod +x wss
 chmod +x vls
 chmod +x updatee
 chmod +x auto-reboot
+chmod +x clear-log
 echo "0 0 * * * root clear-log && reboot" >> /etc/crontab
 echo "0 0 * * * root xp" >> /etc/crontab
 # remove unnecessary files
