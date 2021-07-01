@@ -164,15 +164,19 @@ connect = 127.0.0.1:109
 
 [dropbear]
 accept = 2086
+connect = 127.0.0.1:109
+
+[dropbear]
+accept = 222
+connect = 127.0.0.1:22
+
+[dropbear]
+accept = 777
 connect = 127.0.0.1:22
 
 [openvpn]
 accept = 442
 connect = 127.0.0.1:2200
-
-[openvpn]
-accept = 2095
-connect = 127.0.0.1:1194
 
 END
 
