@@ -3,7 +3,7 @@
 # ==============================
 
 # Getting Proxy Template
-wget -q -O /usr/local/bin/edu-tls "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/edu1.py"
+wget -q /usr/local/bin/edu-tls "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/edu1.py"
 chmod +x /usr/local/bin/edu-tls
 
 # Installing Service
