@@ -3,7 +3,7 @@
 # ==============================
 
 # Getting Proxy Template
-wget -q /usr/local/bin/edu-tls "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/edu1.py"
+wget -O /usr/local/bin/edu-tls "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/edu1.py"
 chmod +x /usr/local/bin/edu-tls
 
 # Installing Service
@@ -19,7 +19,7 @@ User=root
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
-ExecStart=/usr/bin/python /usr/local/bin/edu-tls -port 2083 -direct 143
+ExecStart=/usr/bin/python /usr/local/bin/edu-tls -port 2083 -direct 443
 Restart=on-failure
 
 [Install]
