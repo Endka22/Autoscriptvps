@@ -163,10 +163,6 @@ accept = 443
 connect = 127.0.0.1:22
 
 [dropbear]
-accept = 2083
-connect = 127.0.0.1:85
-
-[dropbear]
 accept = 222
 connect = 127.0.0.1:22
 
