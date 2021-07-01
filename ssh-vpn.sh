@@ -160,11 +160,7 @@ socket = r:TCP_NODELAY=1
 
 [dropbear]
 accept = 443
-connect = 127.0.0.1:22
-
-[dropbear]
-accept = 2083
-connect = 127.0.0.1:143
+connect = 127.0.0.1:109
 
 [dropbear]
 accept = 222
