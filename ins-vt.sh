@@ -514,7 +514,7 @@ chmod +x cek-ws
 chmod +x cek-vless
 chmod +x cek-tr
 chmod +x renew-ws
-cmod +x renew-vless
+chmod +x renew-vless
 chmod +x renew-tr
 chmod +x certv2ray
 cd
