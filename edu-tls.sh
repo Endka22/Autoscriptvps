@@ -19,7 +19,7 @@ User=root
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
-ExecStart=/usr/bin/python /usr/local/bin/edu-tls -port 2083 -direct 3413
+ExecStart=/usr/bin/python -O /usr/local/bin/edu-tls 2083
 Restart=on-failure
 
 [Install]
