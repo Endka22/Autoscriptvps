@@ -3,15 +3,17 @@ import socket, threading, thread, select, signal, sys, time, getopt
 
 # Listen
 LISTENING_ADDR = '0.0.0.0'
-LISTENING_PORT = 2083
-
+is sys.argv[1:]:
+	LISTENING_PORT = sys.argv[1]
+else:
+	LISTENING_PORT = 110
 # Pass
 PASS = ''
 
 # CONST
 BUFLEN = 4096 * 4
 TIMEOUT = 60
-DEFAULT_HOST = '127.0.0.1:8080'
+DEFAULT_HOST = '127.0.0.1:109'
 RESPONSE = 'HTTP/1.1 101 Endka-Stores\r\n\r\nContent-Length: 104857600000\r\n\r\n'
 
 class Server(threading.Thread):
