@@ -3,7 +3,7 @@ import socket, threading, thread, select, signal, sys, time, getopt
 
 # Listen
 LISTENING_ADDR = '0.0.0.0'
-is sys.argv[1:]:
+if sys.argv[1:]:
 	LISTENING_PORT = sys.argv[1]
 else:
 	LISTENING_PORT = 110
