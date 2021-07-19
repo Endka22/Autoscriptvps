@@ -196,13 +196,7 @@ sed -i 's/ENABLED=0/ENABLED=1/g' /etc/default/stunnel4
 wget https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/vpn.sh &&  chmod +x vpn.sh && ./vpn.sh
 
 #Edu
-wget https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/edu.sh &&  chmod +x edu.sh && ./edu.sh
-
-#Edu-Tls
-wget https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/edu-tls.sh &&  chmod +x edu-tls.sh && ./edu-tls.sh
-
-#Edu-ovpn
-wget https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/edu-ovpn.sh &&  chmod +x edu-ovpn.sh && ./edu-ovpn.sh
+wget https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/websocket.sh &&  chmod +x websocket.sh && ./websocket.sh
 
 # install fail2ban
 apt -y install fail2ban
