@@ -132,7 +132,7 @@ cat> /etc/v2ray/none.json << END
   },
   "inbounds": [
     {
-      "port": 80,
+      "port": 8080,
       "protocol": "vmess",
       "settings": {
         "clients": [
@@ -467,11 +467,13 @@ $uuid
 EOF
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2087 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8443 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2086 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8880 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2087 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8443 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8080 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 80 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2086 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8880 -j ACCEPT
