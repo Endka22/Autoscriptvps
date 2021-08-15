@@ -35,7 +35,8 @@ cat> /etc/v2ray/config.json << END
   },
   "inbounds": [
     {
-      "port": 8443,
+      "port": 16888,
+      "listen":"127.0.0.1",
       "protocol": "vmess",
       "settings": {
         "clients": [
@@ -47,79 +48,15 @@ cat> /etc/v2ray/config.json << END
         ]
       },
       "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "certificates": [
-            {
-              "certificateFile": "etc/v2ray/v2ray.crt",
-              "keyFile": "/etc/v2ray/v2ray.key"
-            }
-          ]
-        },
-        "wsSettings": {
-          "path": "/v2ray",
-          "headers": {
-            "Host": ""
-          }
-         },
-        "quicSettings": {},
-        "sockopt": {
-          "mark": 0,
-          "tcpFastOpen": true
+      "network": "ws",
+      "wsSettings": {
+         "path": "/Endka"
         }
-      },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
-      },
-      "domain": "$domain"
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {}
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {},
-      "tag": "blocked"
-    }
-  ],
-  "routing": {
-    "rules": [
-      {
-        "type": "field",
-        "ip": [
-          "0.0.0.0/8",
-          "10.0.0.0/8",
-          "100.64.0.0/10",
-          "169.254.0.0/16",
-          "172.16.0.0/12",
-          "192.0.0.0/24",
-          "192.0.2.0/24",
-          "192.168.0.0/16",
-          "198.18.0.0/15",
-          "198.51.100.0/24",
-          "203.0.113.0/24",
-          "::1/128",
-          "fc00::/7",
-          "fe80::/10"
-        ],
-        "outboundTag": "blocked"
-      },
-      {
-        "type": "field",
-        "outboundTag": "blocked",
-        "protocol": [
-          "bittorrent"
-        ]
-      }
-    ]
+     }
+  },
+  "outbound": {
+    "protocol": "freedom",
+    "settings": {}
   }
 }
 END
@@ -132,7 +69,8 @@ cat> /etc/v2ray/none.json << END
   },
   "inbounds": [
     {
-      "port": 8080,
+      "port": 16889,
+      "listen":"127.0.0.1",
       "protocol": "vmess",
       "settings": {
         "clients": [
@@ -144,70 +82,15 @@ cat> /etc/v2ray/none.json << END
         ]
       },
       "streamSettings": {
-        "network": "ws",
-        "wsSettings": {
-          "path": "/v2ray",
-          "headers": {
-            "Host": ""
-          }
-         },
-        "quicSettings": {},
-        "sockopt": {
-          "mark": 0,
-          "tcpFastOpen": true
+      "network": "ws",
+      "wsSettings": {
+         "path": "/Endka"
         }
-      },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
-      },
-      "domain": "$domain"
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {}
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {},
-      "tag": "blocked"
-    }
-  ],
-  "routing": {
-    "rules": [
-      {
-        "type": "field",
-        "ip": [
-          "0.0.0.0/8",
-          "10.0.0.0/8",
-          "100.64.0.0/10",
-          "169.254.0.0/16",
-          "172.16.0.0/12",
-          "192.0.0.0/24",
-          "192.0.2.0/24",
-          "192.168.0.0/16",
-          "198.18.0.0/15",
-          "198.51.100.0/24",
-          "203.0.113.0/24",
-          "::1/128",
-          "fc00::/7",
-          "fe80::/10"
-        ],
-        "outboundTag": "blocked"
-      },
-      {
-        "type": "field",
-        "outboundTag": "blocked",
-        "protocol": [
-          "bittorrent"
-        ]
-      }
-    ]
+     }
+  },
+  "outbound": {
+    "protocol": "freedom",
+    "settings": {}
   }
 }
 END
@@ -220,7 +103,8 @@ cat> /etc/v2ray/vless.json << END
   },
   "inbounds": [
     {
-      "port": 2086,
+      "port": 16899,
+      "listen":"127.0.0.1",
       "protocol": "vless",
       "settings": {
         "clients": [
@@ -232,78 +116,15 @@ cat> /etc/v2ray/vless.json << END
         "decryption": "none"
       },
       "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "certificates": [
-            {
-              "certificateFile": "etc/v2ray/v2ray.crt",
-              "keyFile": "/etc/v2ray/v2ray.key"
-            }
-          ]
-        },
-        "wsSettings": {
-          "path": "/v2ray",
-          "headers": {
-            "Host": ""
-          }
-         },
-        "quicSettings": {},
-        "sockopt": {
-          "mark": 0,
-          "tcpFastOpen": true
+      "network": "ws",
+      "wsSettings": {
+         "path": "/Endka"
         }
-      },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
-      }
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {}
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {},
-      "tag": "blocked"
-    }
-  ],
-  "routing": {
-    "rules": [
-      {
-        "type": "field",
-        "ip": [
-          "0.0.0.0/8",
-          "10.0.0.0/8",
-          "100.64.0.0/10",
-          "169.254.0.0/16",
-          "172.16.0.0/12",
-          "192.0.0.0/24",
-          "192.0.2.0/24",
-          "192.168.0.0/16",
-          "198.18.0.0/15",
-          "198.51.100.0/24",
-          "203.0.113.0/24",
-          "::1/128",
-          "fc00::/7",
-          "fe80::/10"
-        ],
-        "outboundTag": "blocked"
-      },
-      {
-        "type": "field",
-        "outboundTag": "blocked",
-        "protocol": [
-          "bittorrent"
-        ]
-      }
-    ]
+     }
+  },
+  "outbound": {
+    "protocol": "freedom",
+    "settings": {}
   }
 }
 END
@@ -399,16 +220,16 @@ cat <<EOF > /etc/trojan/config.json
 {
     "run_type": "server",
     "local_addr": "0.0.0.0",
-    "local_port": 2087,
+    "local_port": 443,
     "remote_addr": "127.0.0.1",
-    "remote_port": 2603,
+    "remote_port": 8080,
     "password": [
         "$uuid"
     ],
     "log_level": 1,
     "ssl": {
-        "cert": "/etc/v2ray/v2ray.crt",
-        "key": "/etc/v2ray/v2ray.key",
+        "cert": "/etc/letsencrypt/live/tes3.endka.me/fullchain.pem",
+        "key": " /etc/letsencrypt/live/tes3.endka.me/privkey.pem",
         "key_password": "",
         "cipher": "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384",
         "cipher_tls13": "TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384",
@@ -465,17 +286,8 @@ EOF
 cat <<EOF > /etc/trojan/uuid.txt
 $uuid
 EOF
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2087 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8443 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8080 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2086 -j ACCEPT
+
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8880 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2087 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8443 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8080 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 80 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2086 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8880 -j ACCEPT
 iptables-save > /etc/iptables.up.rules
 iptables-restore -t < /etc/iptables.up.rules
