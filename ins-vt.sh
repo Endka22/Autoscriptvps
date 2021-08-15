@@ -228,8 +228,8 @@ cat <<EOF > /etc/trojan/config.json
     ],
     "log_level": 1,
     "ssl": {
-        "cert": "/etc/letsencrypt/live/tes3.endka.me/fullchain.pem",
-        "key": " /etc/letsencrypt/live/tes3.endka.me/privkey.pem",
+        "cert": "/etc/letsencrypt/live/tes1.endka.ga/fullchain.pem",
+        "key": " /etc/letsencrypt/live/tes1.endka.ga/privkey.pem",
         "key_password": "",
         "cipher": "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384",
         "cipher_tls13": "TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384",
