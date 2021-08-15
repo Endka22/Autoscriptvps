@@ -50,41 +50,7 @@ cat> /etc/v2ray/config.json << END
       "streamSettings": {
       "network": "ws",
       "wsSettings": {
-         "path": "/Endka"
-        }
-     }
-  },
-  "outbound": {
-    "protocol": "freedom",
-    "settings": {}
-  }
-}
-END
-cat> /etc/v2ray/none.json << END
-{
-  "log": {
-    "access": "/var/log/v2ray/access.log",
-    "error": "/var/log/v2ray/error.log",
-    "loglevel": "info"
-  },
-  "inbounds": [
-    {
-      "port": 16889,
-      "listen":"127.0.0.1",
-      "protocol": "vmess",
-      "settings": {
-        "clients": [
-          {
-            "id": "${uuid}",
-            "alterId": 2
-#none
-          }
-        ]
-      },
-      "streamSettings": {
-      "network": "ws",
-      "wsSettings": {
-         "path": "/Endka"
+         "path": "/endka"
         }
      }
   },
@@ -118,7 +84,7 @@ cat> /etc/v2ray/vless.json << END
       "streamSettings": {
       "network": "ws",
       "wsSettings": {
-         "path": "/Endka"
+         "path": "/endka22"
         }
      }
   },
