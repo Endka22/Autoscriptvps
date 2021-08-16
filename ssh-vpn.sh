@@ -87,6 +87,16 @@ apt-get --reinstall --fix-missing install -y bzip2 gzip coreutils wget screen rs
 echo "clear" >> .profile
 echo "neofetch" >> .profile
 
+# install webserver
+apt -y install nginx
+cd
+rm /etc/nginx/sites-enabled/default
+rm /etc/nginx/sites-available/default
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/nginx.conf"
+mkdir -p /home/vps/public_html
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/vps.conf"
+/etc/init.d/nginx restart
+
 # install badvpn
 cd
 wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/badvpn-udpgw64"
