@@ -32,94 +32,30 @@ cat> /etc/v2ray/config.json << END
     "access": "/var/log/v2ray/access.log",
     "error": "/var/log/v2ray/error.log",
     "loglevel": "info"
-  },
-  "inbounds": [
-    {
-      "port": 8443,
-      "protocol": "vmess",
-      "settings": {
-        "clients": [
-          {
-            "id": "${uuid}",
-            "alterId": 2
-#tls
-          }
-        ]
-      },
-      "streamSettings": {
-        "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "certificates": [
-            {
-              "certificateFile": "etc/v2ray/v2ray.crt",
-              "keyFile": "/etc/v2ray/v2ray.key"
-            }
-          ]
-        },
-        "wsSettings": {
-          "path": "/v2ray",
-          "headers": {
-            "Host": ""
-          }
-         },
-        "quicSettings": {},
-        "sockopt": {
-          "mark": 0,
-          "tcpFastOpen": true
+  {
+  "inbound": {
+    "port": 16888,
+    "listen":"127.0.0.1",
+    "protocol": "vmess",
+    "settings": {
+      "clients": [
+        {
+          "id": "ac940e7d-b40f-4bb2-9a4b-0b1c6cc9e67d",
+          "level": 1,
+          "alterId": 64
         }
-      },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
-      },
-      "domain": "$domain"
-    }
-  ],
-  "outbounds": [
-    {
-      "protocol": "freedom",
-      "settings": {}
+      ]
     },
-    {
-      "protocol": "blackhole",
-      "settings": {},
-      "tag": "blocked"
-    }
-  ],
-  "routing": {
-    "rules": [
-      {
-        "type": "field",
-        "ip": [
-          "0.0.0.0/8",
-          "10.0.0.0/8",
-          "100.64.0.0/10",
-          "169.254.0.0/16",
-          "172.16.0.0/12",
-          "192.0.0.0/24",
-          "192.0.2.0/24",
-          "192.168.0.0/16",
-          "198.18.0.0/15",
-          "198.51.100.0/24",
-          "203.0.113.0/24",
-          "::1/128",
-          "fc00::/7",
-          "fe80::/10"
-        ],
-        "outboundTag": "blocked"
-      },
-      {
-        "type": "field",
-        "outboundTag": "blocked",
-        "protocol": [
-          "bittorrent"
-        ]
-      }
-    ]
+     "streamSettings": {
+      "network": "ws",
+      "wsSettings": {
+         "path": "/endka"
+        }
+     }
+  },
+  "outbound": {
+    "protocol": "freedom",
+    "settings": {}
   }
 }
 END
@@ -217,49 +153,26 @@ cat> /etc/v2ray/vless.json << END
     "access": "/var/log/v2ray/access2.log",
     "error": "/var/log/v2ray/error.log",
     "loglevel": "info"
-  },
+  {
   "inbounds": [
     {
-      "port": 2086,
+      "port": 16999,
+      "listen":"127.0.0.1",
       "protocol": "vless",
       "settings": {
+        "decryption": "none",
         "clients": [
           {
-            "id": "${uuid}"
-#tls
+            "id": "1bb83c10-911e-4767-81d2-adb5177c0718",
+            "level": 0
           }
-        ],
-        "decryption": "none"
+        ]
       },
       "streamSettings": {
         "network": "ws",
-        "security": "tls",
-        "tlsSettings": {
-          "certificates": [
-            {
-              "certificateFile": "etc/v2ray/v2ray.crt",
-              "keyFile": "/etc/v2ray/v2ray.key"
-            }
-          ]
-        },
         "wsSettings": {
-          "path": "/v2ray",
-          "headers": {
-            "Host": ""
-          }
-         },
-        "quicSettings": {},
-        "sockopt": {
-          "mark": 0,
-          "tcpFastOpen": true
+        "path": "/endka22"
         }
-      },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
       }
     }
   ],
@@ -267,45 +180,9 @@ cat> /etc/v2ray/vless.json << END
     {
       "protocol": "freedom",
       "settings": {}
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {},
-      "tag": "blocked"
     }
-  ],
-  "routing": {
-    "rules": [
-      {
-        "type": "field",
-        "ip": [
-          "0.0.0.0/8",
-          "10.0.0.0/8",
-          "100.64.0.0/10",
-          "169.254.0.0/16",
-          "172.16.0.0/12",
-          "192.0.0.0/24",
-          "192.0.2.0/24",
-          "192.168.0.0/16",
-          "198.18.0.0/15",
-          "198.51.100.0/24",
-          "203.0.113.0/24",
-          "::1/128",
-          "fc00::/7",
-          "fe80::/10"
-        ],
-        "outboundTag": "blocked"
-      },
-      {
-        "type": "field",
-        "outboundTag": "blocked",
-        "protocol": [
-          "bittorrent"
-        ]
-      }
-    ]
-  }
-}
+  ]
+ }
 END
 cat> /etc/v2ray/vnone.json << END
 {
@@ -399,11 +276,12 @@ cat <<EOF > /etc/trojan/config.json
 {
     "run_type": "server",
     "local_addr": "0.0.0.0",
-    "local_port": 2087,
+    "local_port": 443,
     "remote_addr": "127.0.0.1",
-    "remote_port": 2603,
+    "remote_port": 8080,
     "password": [
-        "$uuid"
+        "password1",
+        "password2"
     ],
     "log_level": 1,
     "ssl": {
@@ -416,6 +294,9 @@ cat <<EOF > /etc/trojan/config.json
         "alpn": [
             "http/1.1"
         ],
+        "alpn_port_override": {
+            "h2": 81
+        },
         "reuse_session": true,
         "session_ticket": false,
         "session_timeout": 600,
@@ -465,15 +346,13 @@ EOF
 cat <<EOF > /etc/trojan/uuid.txt
 $uuid
 EOF
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2087 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8443 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 16888 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 16999 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 2086 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8880 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2087 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8443 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 16888 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 16999 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 80 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 2086 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8880 -j ACCEPT
 iptables-save > /etc/iptables.up.rules
 iptables-restore -t < /etc/iptables.up.rules
