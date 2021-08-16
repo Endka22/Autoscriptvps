@@ -27,11 +27,6 @@ chmod +x /root/.acme.sh/acme.sh
 service squid start
 uuid=$(cat /proc/sys/kernel/random/uuid)
 cat> /etc/v2ray/config.json << END
-{
-  "log": {
-    "access": "/var/log/v2ray/access.log",
-    "error": "/var/log/v2ray/error.log",
-    "loglevel": "info"
   {
   "inbound": {
     "port": 16888,
@@ -41,8 +36,8 @@ cat> /etc/v2ray/config.json << END
       "clients": [
         {
           "id": "ac940e7d-b40f-4bb2-9a4b-0b1c6cc9e67d",
-          "level": 1,
-          "alterId": 64
+          "level": 1
+#tls          
         }
       ]
     },
@@ -82,7 +77,7 @@ cat> /etc/v2ray/none.json << END
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/v2ray",
+          "path": "/endka",
           "headers": {
             "Host": ""
           }
@@ -370,19 +365,19 @@ systemctl enable trojan
 systemctl restart v2ray
 systemctl enable v2ray
 cd /usr/bin
-wget -O add-ws "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/add-ws.sh"
-wget -O add-vless "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/add-vless.sh"
-wget -O add-tr "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/add-tr.sh"
-wget -O del-ws "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/del-ws.sh"
-wget -O del-vless "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/del-vless.sh"
-wget -O del-tr "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/del-tr.sh"
-wget -O cek-ws "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/cek-ws.sh"
-wget -O cek-vless "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/cek-vless.sh"
-wget -O cek-tr "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/cek-tr.sh"
-wget -O renew-ws "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/renew-ws.sh"
-wget -O renew-vless "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/renew-vless.sh"
-wget -O renew-tr "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/renew-tr.sh"
-wget -O certv2ray "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/cert.sh"
+wget -O add-ws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/add-ws.sh"
+wget -O add-vless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/add-vless.sh"
+wget -O add-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/add-tr.sh"
+wget -O del-ws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/del-ws.sh"
+wget -O del-vless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/del-vless.sh"
+wget -O del-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/del-tr.sh"
+wget -O cek-ws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cek-ws.sh"
+wget -O cek-vless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cek-vless.sh"
+wget -O cek-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cek-tr.sh"
+wget -O renew-ws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/renew-ws.sh"
+wget -O renew-vless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/renew-vless.sh"
+wget -O renew-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/renew-tr.sh"
+wget -O certv2ray "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cert.sh"
 chmod +x add-ws
 chmod +x add-vless
 chmod +x add-tr
