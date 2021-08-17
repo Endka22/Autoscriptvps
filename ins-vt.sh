@@ -56,91 +56,31 @@ cat> /etc/v2ray/config.json << END
 END
 cat> /etc/v2ray/none.json << END
 {
-  "log": {
-    "access": "/var/log/v2ray/access.log",
-    "error": "/var/log/v2ray/error.log",
-    "loglevel": "info"
-  },
   "inbounds": [
     {
       "port": 80,
-      "listen":"127.0.0.1",
       "protocol": "vmess",
       "settings": {
         "clients": [
           {
-            "id": "${uuid}",
-            "alterId": 2
-#none
+            "id": "$uuid"
           }
         ]
       },
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/endka2",
-          "headers": {
-            "Host": ""
-          }
-         },
-        "quicSettings": {},
-        "sockopt": {
-          "mark": 0,
-          "tcpFastOpen": true
+        "path": "/endka2"
         }
-      },
-      "sniffing": {
-        "enabled": true,
-        "destOverride": [
-          "http",
-          "tls"
-        ]
-      },
-      "domain": "$domain"
+      }
     }
   ],
   "outbounds": [
     {
       "protocol": "freedom",
       "settings": {}
-    },
-    {
-      "protocol": "blackhole",
-      "settings": {},
-      "tag": "blocked"
     }
-  ],
-  "routing": {
-    "rules": [
-      {
-        "type": "field",
-        "ip": [
-          "0.0.0.0/8",
-          "10.0.0.0/8",
-          "100.64.0.0/10",
-          "169.254.0.0/16",
-          "172.16.0.0/12",
-          "192.0.0.0/24",
-          "192.0.2.0/24",
-          "192.168.0.0/16",
-          "198.18.0.0/15",
-          "198.51.100.0/24",
-          "203.0.113.0/24",
-          "::1/128",
-          "fc00::/7",
-          "fe80::/10"
-        ],
-        "outboundTag": "blocked"
-      },
-      {
-        "type": "field",
-        "outboundTag": "blocked",
-        "protocol": [
-          "bittorrent"
-        ]
-      }
-    ]
-  }
+  ]
 }
 END
 cat> /etc/v2ray/vless.json << END
@@ -274,7 +214,7 @@ cat <<EOF > /etc/trojan/config.json
     "local_addr": "0.0.0.0",
     "local_port": 443,
     "remote_addr": "127.0.0.1",
-    "remote_port": 8080,
+    "remote_port": 80,
     "password": [
         "password1",
         "password2"
