@@ -119,6 +119,7 @@ install_ssl(){
         echo "Y" | certbot certonly --renew-by-default --register-unsafely-without-email --standalone -d $domain
         sleep 3s
     fi
+}
 
 # install webserver
 apt -y install nginx
