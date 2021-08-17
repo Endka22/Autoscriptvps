@@ -37,7 +37,7 @@ cat> /etc/v2ray/config.json << END
         {
           "id": "ac940e7d-b40f-4bb2-9a4b-0b1c6cc9e67d",
           "level": 1
-#tls          
+#tls
         }
       ]
     },
@@ -64,6 +64,7 @@ cat> /etc/v2ray/none.json << END
   "inbounds": [
     {
       "port": 80,
+      "listen":"127.0.0.1",
       "protocol": "vmess",
       "settings": {
         "clients": [
@@ -77,7 +78,7 @@ cat> /etc/v2ray/none.json << END
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path": "/endka",
+          "path": "/endka2",
           "headers": {
             "Host": ""
           }
