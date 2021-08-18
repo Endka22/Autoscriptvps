@@ -64,6 +64,7 @@ cat> /etc/v2ray/none.json << END
         "clients": [
           {
             "id": "$uuid"
+#none
           }
         ]
       },
@@ -84,11 +85,6 @@ cat> /etc/v2ray/none.json << END
 }
 END
 cat> /etc/v2ray/vless.json << END
-{
-  "log": {
-    "access": "/var/log/v2ray/access2.log",
-    "error": "/var/log/v2ray/error.log",
-    "loglevel": "info"
   {
   "inbounds": [
     {
@@ -101,6 +97,7 @@ cat> /etc/v2ray/vless.json << END
           {
             "id": "1bb83c10-911e-4767-81d2-adb5177c0718",
             "level": 0
+#tls
           }
         ]
       },
@@ -216,8 +213,7 @@ cat <<EOF > /etc/trojan/config.json
     "remote_addr": "127.0.0.1",
     "remote_port": 80,
     "password": [
-        "password1",
-        "password2"
+        "password"
     ],
     "log_level": 1,
     "ssl": {
@@ -284,11 +280,9 @@ $uuid
 EOF
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 16888 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 16999 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8880 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 16888 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 16999 -j ACCEPT
-iptables -I INPUT -m state --state NEW -m udp -p udp --dport 80 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8880 -j ACCEPT
 iptables-save > /etc/iptables.up.rules
 iptables-restore -t < /etc/iptables.up.rules
