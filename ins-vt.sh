@@ -280,9 +280,11 @@ $uuid
 EOF
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 16888 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 16999 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 8880 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 16888 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 16999 -j ACCEPT
+iptables -I INPUT -m state --state NEW -m udp -p udp --dport 80 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 8880 -j ACCEPT
 iptables-save > /etc/iptables.up.rules
 iptables-restore -t < /etc/iptables.up.rules
