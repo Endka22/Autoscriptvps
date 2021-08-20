@@ -130,6 +130,7 @@ wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/Endka22/Autosc/
 mkdir -p /home/vps/public_html
 wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/Endka22/Autosc/main/vps.conf"
 /etc/init.d/nginx restart
+systemctl stop nginx
 
 # install badvpn
 cd
