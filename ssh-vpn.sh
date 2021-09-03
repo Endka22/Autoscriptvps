@@ -303,7 +303,7 @@ cd /usr/bin
 wget -O add-host "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/add-host.sh"
 wget -O about "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/about.sh"
 wget -O menu "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/menu.sh"
-wget -O usernew "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/usernew.sh"
+wget -O usernew "https://raw.githubusercontent.com/Endka22/Autosc/main/usernew.sh"
 wget -O trial "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/trial.sh"
 wget -O hapus "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/hapus.sh"
 wget -O member "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/member.sh"
