@@ -315,7 +315,7 @@ wget -O port-squid "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main
 wget -O port-ws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/port-ws.sh"
 wget -O port-vless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/port-vless.sh"
 wget -O wbmn "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/webmin.sh"
-wget -O xp "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp.sh"
+wget -O xp "https://raw.githubusercontent.com/Endka22/Autosc/main/xp.sh"
 wget -O kernel-updt "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/kernel-update.sh"
 wget -O tessh "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/tessh.sh"
 wget -O ssstp "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/ssstp.sh"
