@@ -338,9 +338,9 @@ wget -O wgg "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/wgg.sh
 wget -O trj "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/trj.sh"
 wget -O wss "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/wss.sh"
 wget -O vls "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/vls.sh"
-wget -O updatee "https://raw.githubuserconten2/Autoscriptvps/main/updatee.sh"
-wget -O auto-reboot "https://raw.githubuserconten2/Autoscriptvps/main/auto-reboot.sh"
-wget -O clear-log "https://raw.githubuserconten2/Autosc/main/clear-log.sh"
+wget -O updatee "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/updatee.sh"
+wget -O auto-reboot "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/auto-reboot.sh"
+wget -O clear-log "https://raw.githubusercontent.com/Endka22/Autosc/main/clear-log.sh"
 chmod +x add-host
 chmod +x menu
 chmod +x usernew
