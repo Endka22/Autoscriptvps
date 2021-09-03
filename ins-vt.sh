@@ -302,19 +302,22 @@ systemctl enable trojan
 systemctl restart v2ray
 systemctl enable v2ray
 cd /usr/bin
-wget -O add-ws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/add-ws.sh"
-wget -O add-vless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/add-vless.sh"
+wget -O add-ws "https://raw.githubusercontent.com/Endka22/Autosc/main/add-ws.sh"
+wget -O add-vless "https://raw.githubusercontent.com/Endka22/Autosc/main/add-vless.sh"
 wget -O add-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/add-tr.sh"
-wget -O del-ws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/del-ws.sh"
+wget -O del-ws "https://raw.githubusercontent.com/Endka22/Autosc/main/del-ws.sh"
 wget -O del-vless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/del-vless.sh"
 wget -O del-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/del-tr.sh"
-wget -O cek-ws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cek-ws.sh"
+wget -O cek-ws "https://raw.githubusercontent.com/Endka22/Autosc/main/cek-ws.sh"
 wget -O cek-vless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cek-vless.sh"
 wget -O cek-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cek-tr.sh"
-wget -O renew-ws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/renew-ws.sh"
+wget -O renew-ws "https://raw.githubusercontent.com/Endka22/Autosc/main/renew-ws.sh"
 wget -O renew-vless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/renew-vless.sh"
 wget -O renew-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/renew-tr.sh"
 wget -O certv2ray "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cert.sh"
+wget -O add-wstls "https://raw.githubusercontent.com/Endka22/Autosc/main/add-wstls.sh"
+wget -O del-non "https://raw.githubusercontent.com/Endka22/Autosc/main/del-non.sh"
+wget -O renew-non "https://raw.githubusercontent.com/Endka22/Autosc/main/renew-non.sh"
 chmod +x add-ws
 chmod +x add-vless
 chmod +x add-tr
@@ -328,6 +331,9 @@ chmod +x renew-ws
 chmod +x renew-vless
 chmod +x renew-tr
 chmod +x certv2ray
+chmod +x del-non
+chmod +x add-wstls
+chmod +x renew-non
 cd
 rm -f ins-vt.sh
 mv /root/domain /etc/v2ray
