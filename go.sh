@@ -326,7 +326,7 @@ installInitScript(){
         cat > /etc/systemd/system/v2ray.service <<EOF
 [Unit]
 Description=V2Ray Service
-Documentation=https://www.v2ray.com/ https://www.v2fly.org/
+Documentation=https://www.endkaproject.com/ https://github.com/v2fly/v2ray-core
 After=network.target nss-lookup.target
 
 [Service]
@@ -345,6 +345,7 @@ EOF
 cat > /etc/systemd/system/v2ray@.service <<-EOF
 [Unit]
 Description=V2Ray Service
+Documentation=https://www.endkaproject.com/ https://github.com/v2fly/v2ray-core
 After=network.target nss-lookup.target
  
 [Service]
