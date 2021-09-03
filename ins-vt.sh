@@ -304,7 +304,7 @@ systemctl enable v2ray
 cd /usr/bin
 wget -O add-ws "https://raw.githubusercontent.com/Endka22/Autosc/main/add-ws.sh"
 wget -O add-vless "https://raw.githubusercontent.com/Endka22/Autosc/main/add-vless.sh"
-wget -O add-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/add-tr.sh"
+wget -O add-tr "https://raw.githubusercontent.com/Endka22/Autosc/main/add-tr.sh"
 wget -O del-ws "https://raw.githubusercontent.com/Endka22/Autosc/main/del-ws.sh"
 wget -O del-vless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/del-vless.sh"
 wget -O del-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/del-tr.sh"
