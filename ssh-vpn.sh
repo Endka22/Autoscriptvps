@@ -194,6 +194,15 @@ systemctl enable vnstat
 rm -f /root/vnstat-2.7.tar.gz
 rm -rf /root/vnstat-2.7
 
+cd
+#install sslh
+apt-get install sslh -y
+
+#konfigurasi
+#port 443 to 77 and 777
+wget -O /etc/default/sslh "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/sslh.conf"
+service sslh restart
+
 # install stunnel
 apt install stunnel4 -y
 cat > /etc/stunnel/stunnel.conf <<-END
@@ -202,6 +211,10 @@ client = no
 socket = a:SO_REUSEADDR=1
 socket = l:TCP_NODELAY=1
 socket = r:TCP_NODELAY=1
+
+[dropbear]
+accept = 443
+connect = 700
 
 [dropbear]
 accept = 222
