@@ -128,7 +128,7 @@ rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
 wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/Endka22/Autosc/main/nginx.conf"
 mkdir -p /home/vps/public_html
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/Endka22/Autos/main/vps.conf"
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/Endka22/Autosriptvps/main/vps.conf"
 /etc/init.d/nginx restart
 
 # install badvpn
@@ -200,7 +200,7 @@ apt-get install sslh -y
 
 #konfigurasi
 #port 443 to 77 and 777
-wget -O /etc/default/sslh "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/sslh.conf"
+wget -O /etc/default/sslh "https://raw.githubusercontent.com/Endka22/Autosc/main/sslh.conf"
 service sslh restart
 
 # install stunnel
@@ -211,10 +211,6 @@ client = no
 socket = a:SO_REUSEADDR=1
 socket = l:TCP_NODELAY=1
 socket = r:TCP_NODELAY=1
-
-[dropbear]
-accept = 443
-connect = 700
 
 [dropbear]
 accept = 222
