@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
-data=( `cat /etc/nginx/conf.d/v2ray.conf | grep '^### Vless' | cut -d ' ' -f 3`);
+data=( `cat /etc/nginx/conf.d/vps.conf | grep '^### Vless' | cut -d ' ' -f 3`);
 echo "-------------------------------";
 echo "-----=[ Vless User Login ]=-----";
 echo "-------------------------------";
