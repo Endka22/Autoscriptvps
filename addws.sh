@@ -2,7 +2,7 @@
 source /var/lib/premium-script/ipvps.conf
 domain=$(cat /etc/v2ray/domain)
 read -rp "User: " -e user
-egrep -w "^### Vmess $user" /etc/nginx/conf.d/v2ray.conf >/dev/null
+egrep -w "^### Vmess $user" /etc/nginx/conf.d/vps.conf >/dev/null
 if [ $? -eq 0 ]; then
 echo -e "Username Sudah Ada"
 exit 0
@@ -35,7 +35,7 @@ cat> /etc/v2ray/vmess-$user.json<<END
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path":"/vmess@$user"
+          "path":"/ENDKA-STORES@$user"
         }
       }
     }
@@ -83,19 +83,18 @@ cat> /etc/v2ray/vmess-$user.json<<END
   }
 }
 END
-sed -i '$ i### Vmess '"$user"' '"$exp"'' /etc/nginx/conf.d/v2ray.conf
-sed -i '$ ilocation /vmess@'"$user"'' /etc/nginx/conf.d/v2ray.conf
-sed -i '$ i{' /etc/nginx/conf.d/v2ray.conf
-sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/v2ray.conf
-sed -i '$ iproxy_pass http://127.0.0.1:'"$PORT"';' /etc/nginx/conf.d/v2ray.conf
-sed -i '$ iproxy_http_version 1.1;' /etc/nginx/conf.d/v2ray.conf
-sed -i '$ iproxy_set_header X-Real-IP \$remote_addr;' /etc/nginx/conf.d/v2ray.conf
-sed -i '$ iproxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;' /etc/nginx/conf.d/v2ray.conf
-sed -i '$ iproxy_set_header Upgrade \$http_upgrade;' /etc/nginx/conf.d/v2ray.conf
-sed -i '$ iproxy_set_header Connection "upgrade";' /etc/nginx/conf.d/v2ray.conf
-sed -i '$ iproxy_set_header Host \$http_host;' /etc/nginx/conf.d/v2ray.conf
-sed -i '$ iproxy_set_header Early-Data \$ssl_early_data;' /etc/nginx/conf.d/v2ray.conf
-sed -i '$ i}' /etc/nginx/conf.d/v2ray.conf
+sed -i '$ i### Vmess '"$user"' '"$exp"'' /etc/nginx/conf.d/vps.conf
+sed -i '$ ilocation /vmess@'"$user"'' /etc/nginx/conf.d/vps.conf
+sed -i '$ i{' /etc/nginx/conf.d/vps.conf
+sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/vps.conf
+sed -i '$ iproxy_pass http://127.0.0.1:'"$PORT"';' /etc/nginx/conf.d/vps.conf
+sed -i '$ iproxy_http_version 1.1;' /etc/nginx/conf.d/vps.conf
+sed -i '$ iproxy_set_header X-Real-IP \$remote_addr;' /etc/nginx/conf.d/vps.conf
+sed -i '$ iproxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;' /etc/nginx/conf.d/vps.conf
+sed -i '$ iproxy_set_header Upgrade \$http_upgrade;' /etc/nginx/conf.d/vps.conf
+sed -i '$ iproxy_set_header Connection "upgrade";' /etc/nginx/conf.d/vps.conf
+sed -i '$ iproxy_set_header Host \$http_host;' /etc/nginx/conf.d/vps.conf
+sed -i '$ i}' /etc/nginx/conf.d/vps.conf
 tls=`cat<<EOF
       {
       "v": "2",
@@ -105,7 +104,7 @@ tls=`cat<<EOF
       "id": "${uuid}",
       "aid": "64",
       "net": "ws",
-      "path": "/vmess@$user",
+      "path": "/ENDKA-STORES@$user",
       "type": "none",
       "host": "",
       "tls": "tls"
@@ -115,14 +114,14 @@ none=`cat<<EOF
       {
       "v": "2",
       "ps": "${user}",
-      "add": "${domain}",
+      "add": "endka.edu-proxy.site",
       "port": "80",
       "id": "${uuid}",
       "aid": "64",
       "net": "ws",
-      "path": "/vmess@$user",
+      "path": "/ENDKA-STORES@$user",
       "type": "none",
-      "host": "",
+      "host": "${domain}",
       "tls": "none"
 }
 EOF`
@@ -142,7 +141,7 @@ echo -e "id             : ${uuid}"
 echo -e "alterId        : 64"
 echo -e "Security       : auto"
 echo -e "network        : ws"
-echo -e "path           : /vmess@$user"
+echo -e "path           : /ENDKA-STORES@$user"
 echo -e "================================="
 echo -e "link TLS       : ${vmesslink1}"
 echo -e "================================="
