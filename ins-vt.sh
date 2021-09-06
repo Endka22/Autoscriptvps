@@ -13,7 +13,7 @@ chronyc sourcestats -v
 chronyc tracking -v
 date
 # install v2ray
-wget https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/go.sh && chmod +x go.sh && ./go.sh
+wget https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/go.sh && chmod +x go.sh && ./go.sh
 rm -f /root/go.sh
 # ambil versi trojan-go terbaru
 latest_version="$(curl -s "https://api.github.com/repos/p4gefau1t/trojan-go/releases" | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
@@ -117,36 +117,6 @@ cat <<EOF > /etc/trojan-go/uuid.txt
 $uuid
 EOF
 
-cat >/etc/nginx/conf.d/v2ray.conf <<EOF
-    server {
-        listen 80;
-        listen [::]:80;
-        listen 443 ssl http2 reuseport;
-        listen [::]:443 http2 reuseport;
-        ssl_certificate       /etc/v2ray/v2ray.crt;
-        ssl_certificate_key   /etc/v2ray/v2ray.key;
-        ssl_protocols         TLSv1.3;
-        ssl_ciphers           TLS13-AES-256-GCM-SHA384:TLS13-CHACHA20-POLY1305-SHA256:TLS13-AES-128-GCM-SHA256:TLS13-AES-128-CCM-8-SHA256:TLS13-AES-128-CCM-SHA256:EECDH+CHACHA20:EECDH+CHACHA20-draft:EECDH+ECDSA+AES128:EECDH+aRSA+AES128:RSA+AES128:EECDH+ECDSA+AES256:EECDH+aRSA+AES256:RSA+AES256:EECDH+ECDSA+3DES:EECDH+aRSA+3DES:RSA+3DES:!MD5;
-        
-        # Config for 0-RTT in TLSv1.3
-        ssl_early_data on;
-        ssl_stapling on;
-        ssl_stapling_verify on;
-        add_header Strict-Transport-Security "max-age=31536000";
-        }
-EOF
-sed -i '$ ilocation /Trojan-go' /etc/nginx/conf.d/v2ray.conf
-sed -i '$ i{' /etc/nginx/conf.d/v2ray.conf
-sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/v2ray.conf
-sed -i '$ iproxy_pass http://127.0.0.1:2096;' /etc/nginx/conf.d/v2ray.conf
-sed -i '$ iproxy_http_version 1.1;' /etc/nginx/conf.d/v2ray.conf
-sed -i '$ iproxy_set_header X-Real-IP \$remote_addr;' /etc/nginx/conf.d/v2ray.conf
-sed -i '$ iproxy_set_header X-Forwarded-For \$proxy_add_x_forwarded_for;' /etc/nginx/conf.d/v2ray.conf
-sed -i '$ iproxy_set_header Upgrade \$http_upgrade;' /etc/nginx/conf.d/v2ray.conf
-sed -i '$ iproxy_set_header Connection "upgrade";' /etc/nginx/conf.d/v2ray.conf
-sed -i '$ iproxy_set_header Host \$http_host;' /etc/nginx/conf.d/v2ray.conf
-sed -i '$ iproxy_set_header Early-Data \$ssl_early_data;' /etc/nginx/conf.d/v2ray.conf
-sed -i '$ i}' /etc/nginx/conf.d/v2ray.conf
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 443 -j ACCEPT
@@ -161,22 +131,22 @@ systemctl stop trojan-go.service
 systemctl start trojan-go.service
 systemctl restart nginx
 cd /usr/bin
-wget -O addws "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/addws.sh"
-wget -O addvless "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/addvless.sh"
-wget -O delws "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/delws.sh"
-wget -O delvless "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/delvless.sh"
-wget -O cekws "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/cekws.sh"
-wget -O cekvless "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/cekvless.sh"
-wget -O renewws "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/renewws.sh"
-wget -O renewvless "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/renewvless.sh"
-wget -O renewtr "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/renewtr.sh"
-wget -O xp-ws "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/xp-ws.sh"
-wget -O xp-vless "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/xp-vless.sh"
-wget -O certv2ray "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/cert.sh"
-wget -O addtrgo "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/addtrgo.sh"
-wget -O deltrgo "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/deltrgo.sh"
-wget -O cektrgo "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/cektrgo.sh"
-wget -O xp-trgo "https://raw.githubusercontent.com/Endka2210/Autoscriptvps/main/xp-trgo.sh"
+wget -O addws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/addws.sh"
+wget -O addvless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/addvless.sh"
+wget -O delws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/delws.sh"
+wget -O delvless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/delvless.sh"
+wget -O cekws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cekws.sh"
+wget -O cekvless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cekvless.sh"
+wget -O renewws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/renewws.sh"
+wget -O renewvless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/renewvless.sh"
+wget -O renewtr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/renewtr.sh"
+wget -O xp-ws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp-ws.sh"
+wget -O xp-vless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp-vless.sh"
+wget -O certv2ray "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cert.sh"
+wget -O addtrgo "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/addtrgo.sh"
+wget -O deltrgo "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/deltrgo.sh"
+wget -O cektrgo "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cektrgo.sh"
+wget -O xp-trgo "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp-trgo.sh"
 chmod +x addtrgo
 chmod +x deltrgo
 chmod +x cektrgo
