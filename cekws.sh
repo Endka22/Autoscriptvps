@@ -1,6 +1,6 @@
 #!/bin/bash
 clear
-data=( `cat /etc/nginx/conf.d/v2ray.conf | grep '^### Vmess' | cut -d ' ' -f 3`);
+data=( `cat /etc/nginx/conf.d/vps.conf | grep '^### Vmess' | cut -d ' ' -f 3`);
 echo "-------------------------------";
 echo "-----=[ Vmess User Login ]=-----";
 echo "-------------------------------";
