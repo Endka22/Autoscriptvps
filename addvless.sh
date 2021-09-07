@@ -83,7 +83,7 @@ cat> /etc/v2ray/vless-$user.json<<END
 }
 END
 sed -i '$ i### Vless '"$user"' '"$exp"'' /etc/nginx/conf.d/vps.conf
-sed -i '$ ilocation /vless@'"$user"'' /etc/nginx/conf.d/vps.conf
+sed -i '$ ilocation /ENDKA-STORES/'"$user"'' /etc/nginx/conf.d/vps.conf
 sed -i '$ i{' /etc/nginx/conf.d/vps.conf
 sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/vps.conf
 sed -i '$ iproxy_pass http://127.0.0.1:'"$PORT"';' /etc/nginx/conf.d/vps.conf
@@ -94,8 +94,8 @@ sed -i '$ iproxy_set_header Upgrade \$http_upgrade;' /etc/nginx/conf.d/vps.conf
 sed -i '$ iproxy_set_header Connection "upgrade";' /etc/nginx/conf.d/vps.conf
 sed -i '$ iproxy_set_header Host \$http_host;' /etc/nginx/conf.d/vps.conf
 sed -i '$ i}' /etc/nginx/conf.d/vps.conf
-vlesslink1="vless://${uuid}@${domain}:443?path=/ENDKA-STORES@${user}&security=tls&encryption=none&type=ws#${user}"
-vlesslink2="vless://${uuid}@${domain}:80?path=/ENDKA-STORES@${user}&encryption=none&type=ws#${user}"
+vlesslink1="vless://${uuid}@${domain}:443?path=/ENDKA-STORES/${user}&security=tls&encryption=none&type=ws#${user}"
+vlesslink2="vless://${uuid}@${domain}:80?path=/ENDKA-STORES/${user}&encryption=none&type=ws#${user}"
 systemctl start v2ray@vless-$user
 systemctl enable v2ray@vless-$user
 systemctl reload nginx
@@ -110,7 +110,7 @@ echo -e "id             : ${uuid}"
 echo -e "alterId        : 2"
 echo -e "Security       : auto"
 echo -e "network        : ws"
-echo -e "path           : /ENDKA-STORES@$user"
+echo -e "path           : /ENDKA-STORES/$user"
 echo -e "================================="
 echo -e "link TLS       : ${vlesslink1}"
 echo -e "================================="
