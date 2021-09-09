@@ -9,6 +9,7 @@ fi
 PORT=$((RANDOM + 10000))
 read -p "Expired (days): " masaaktif
 uuid=$(cat /proc/sys/kernel/random/uuid)
+uid=$(cat /proc/sys/kernel/random/uuid | sed 's/[-]//g' | head -c 14; echo;)/endka@u=$user&p=$uid
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 cat> /etc/v2ray/vless-$user.json<<END
 {
@@ -34,7 +35,7 @@ cat> /etc/v2ray/vless-$user.json<<END
       "streamSettings": {
         "network": "ws", 
         "wsSettings": {
-        "path":"/ENDKA-STORES@$user"
+        "path":"/endka@u=$user&p=$uid"
         }
       }
     }
@@ -83,7 +84,7 @@ cat> /etc/v2ray/vless-$user.json<<END
 }
 END
 sed -i '$ i### Vless '"$user"' '"$exp"'' /etc/nginx/conf.d/vps.conf
-sed -i '$ ilocation /ENDKA-STORES/'"$user"'' /etc/nginx/conf.d/vps.conf
+sed -i '$ ilocation /endka@u='"$user"'&p='"$uid"'' /etc/nginx/conf.d/vps.conf/endka@u=${user}&p=${uid}
 sed -i '$ i{' /etc/nginx/conf.d/vps.conf
 sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/vps.conf
 sed -i '$ iproxy_pass http://127.0.0.1:'"$PORT"';' /etc/nginx/conf.d/vps.conf
@@ -94,8 +95,8 @@ sed -i '$ iproxy_set_header Upgrade \$http_upgrade;' /etc/nginx/conf.d/vps.conf
 sed -i '$ iproxy_set_header Connection "upgrade";' /etc/nginx/conf.d/vps.conf
 sed -i '$ iproxy_set_header Host \$http_host;' /etc/nginx/conf.d/vps.conf
 sed -i '$ i}' /etc/nginx/conf.d/vps.conf
-vlesslink1="vless://${uuid}@${domain}:443?path=/ENDKA-STORES/${user}&security=tls&encryption=none&type=ws#${user}"
-vlesslink2="vless://${uuid}@${domain}:80?path=/ENDKA-STORES/${user}&encryption=none&type=ws#${user}"
+vlesslink1="vless://${uuid}@${domain}:443?path=/endka@u=${user}&p=${uid}&security=tls&encryption=none&type=ws#${user}"
+vlesslink2="vless://${uuid}@${domain}:80?path=/endka@u=${user}&p=${uid}&encryption=none&type=ws#${user}"
 systemctl start v2ray@vless-$user
 systemctl enable v2ray@vless-$user
 systemctl reload nginx
@@ -110,7 +111,7 @@ echo -e "id             : ${uuid}"
 echo -e "alterId        : 2"
 echo -e "Security       : auto"
 echo -e "network        : ws"
-echo -e "path           : /ENDKA-STORES/$user"
+echo -e "path           : /endka@u=${user}&p=${uid}"
 echo -e "================================="
 echo -e "link TLS       : ${vlesslink1}"
 echo -e "================================="
