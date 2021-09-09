@@ -12,6 +12,7 @@ read -p "Expired (days): " masaaktif
 uuid=$(cat /proc/sys/kernel/random/uuid)
 uid=$(cat /proc/sys/kernel/random/uuid | sed 's/[-]//g' | head -c 14; echo;)
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
+now=`date +"%Y-%m-%d"`
 cat> /etc/v2ray/vmess-$user.json<<END
 {
   "log": {
@@ -147,5 +148,8 @@ echo -e "================================="
 echo -e "link TLS       : ${vmesslink1}"
 echo -e "================================="
 echo -e "link none TLS  : ${vmesslink2}"
-echo -e "================================="
+echo -e "=================================" | lolcat
+echo -e "Created        : $now"
 echo -e "Expired On     : $exp"
+echo -e "=================================" lolcat
+echo -e "AutoScript By Endka"
