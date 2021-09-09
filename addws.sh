@@ -10,6 +10,7 @@ fi
 PORT=$((RANDOM + 10000))
 read -p "Expired (days): " masaaktif
 uuid=$(cat /proc/sys/kernel/random/uuid)
+uid=$(cat /proc/sys/kernel/random/uuid | sed 's/[-]//g' | head -c 14; echo;)
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 cat> /etc/v2ray/vmess-$user.json<<END
 {
@@ -35,7 +36,7 @@ cat> /etc/v2ray/vmess-$user.json<<END
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path":"/ENDKA-STORES@$user"
+          "path":"/endka-vpn?u=${user}&p=${uid}"
         }
       }
     }
@@ -84,7 +85,7 @@ cat> /etc/v2ray/vmess-$user.json<<END
 }
 END
 sed -i '$ i### Vmess '"$user"' '"$exp"'' /etc/nginx/conf.d/vps.conf
-sed -i '$ ilocation /ENDKA-STORES/'"$user"'' /etc/nginx/conf.d/vps.conf
+sed -i '$ ilocation /endka-vpn?u='"$user"'&p='"$uid"'' /etc/nginx/conf.d/vps.conf
 sed -i '$ i{' /etc/nginx/conf.d/vps.conf
 sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/vps.conf
 sed -i '$ iproxy_pass http://127.0.0.1:'"$PORT"';' /etc/nginx/conf.d/vps.conf
@@ -104,7 +105,7 @@ tls=`cat<<EOF
       "id": "${uuid}",
       "aid": "64",
       "net": "ws",
-      "path": "/ENDKA-STORES/$user",
+      "path": "/endka-vpn?u=${user}&p=${uid}",
       "type": "none",
       "host": "",
       "tls": "tls"
@@ -119,7 +120,7 @@ none=`cat<<EOF
       "id": "${uuid}",
       "aid": "64",
       "net": "ws",
-      "path": "/ENDKA-STORES/$user",
+      "path": "/endka-vpn?u=${user}&p=${uid}",
       "type": "none",
       "host": "${domain}",
       "tls": "none"
@@ -141,7 +142,7 @@ echo -e "id             : ${uuid}"
 echo -e "alterId        : 64"
 echo -e "Security       : auto"
 echo -e "network        : ws"
-echo -e "path           : /ENDKA-STORES/$user"
+echo -e "path           : /endka-vpn?u=${user}&p=${uid}"
 echo -e "================================="
 echo -e "link TLS       : ${vmesslink1}"
 echo -e "================================="
