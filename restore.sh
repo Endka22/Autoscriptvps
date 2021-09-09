@@ -34,6 +34,7 @@ cp -r premium-script /var/lib/
 cp -r sstp /home/
 cp -r trojan /etc/
 cp -r v2ray /etc/
+cp vps.conf /etc/nginx/conf.d/
 cp -r shadowsocksr /usr/local/
 cp -r public_html /home/vps/
 cp crontab /etc/
