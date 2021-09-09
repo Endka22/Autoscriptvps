@@ -41,6 +41,7 @@ cp -r /var/lib/premium-script/ backup/premium-script
 cp -r /home/sstp backup/sstp
 cp -r /etc/v2ray backup/v2ray
 cp -r /etc/trojan backup/trojan
+cp /etc/nginx/conf.d/vps.conf backup/vps.conf
 cp -r /usr/local/shadowsocksr/ backup/shadowsocksr
 cp -r /home/vps/public_html backup/public_html
 cd /root
