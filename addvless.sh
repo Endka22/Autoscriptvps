@@ -9,7 +9,7 @@ fi
 PORT=$((RANDOM + 10000))
 read -p "Expired (days): " masaaktif
 uuid=$(cat /proc/sys/kernel/random/uuid)
-uid=$(cat /proc/sys/kernel/random/uuid | sed 's/[-]//g' | head -c 14; echo;)/endka@u=$user&p=$uid
+uid=$(cat /proc/sys/kernel/random/uuid | sed 's/[-]//g' | head -c 14; echo;)
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 now=`date +"%Y-%m-%d"`
 cat> /etc/v2ray/vless-$user.json<<END
@@ -85,7 +85,7 @@ cat> /etc/v2ray/vless-$user.json<<END
 }
 END
 sed -i '$ i### Vless '"$user"' '"$exp"'' /etc/nginx/conf.d/vps.conf
-sed -i '$ ilocation /endka@u='"$user"'&p='"$uid"'' /etc/nginx/conf.d/vps.conf/endka@u=${user}&p=${uid}
+sed -i '$ ilocation /endka@u='"$user"'&p='"$uid"'' /etc/nginx/conf.d/vps.conf
 sed -i '$ i{' /etc/nginx/conf.d/vps.conf
 sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/vps.conf
 sed -i '$ iproxy_pass http://127.0.0.1:'"$PORT"';' /etc/nginx/conf.d/vps.conf
