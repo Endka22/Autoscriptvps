@@ -37,7 +37,7 @@ cat> /etc/v2ray/vmess-$user.json<<END
       "streamSettings": {
         "network": "ws",
         "wsSettings": {
-          "path":"/endka@u=$user&p=$uid"
+          "path":"/endka@u=$user&p=$uid&"
         }
       }
     }
@@ -86,7 +86,7 @@ cat> /etc/v2ray/vmess-$user.json<<END
 }
 END
 sed -i '$ i### Vmess '"$user"' '"$exp"'' /etc/nginx/conf.d/vps.conf
-sed -i '$ ilocation /endka@u='"$user"'&p='"$uid"'' /etc/nginx/conf.d/vps.conf
+sed -i '$ ilocation /endka@u='"$user"'&p='"$uid"'&' /etc/nginx/conf.d/vps.conf
 sed -i '$ i{' /etc/nginx/conf.d/vps.conf
 sed -i '$ iproxy_redirect off;' /etc/nginx/conf.d/vps.conf
 sed -i '$ iproxy_pass http://127.0.0.1:'"$PORT"';' /etc/nginx/conf.d/vps.conf
@@ -106,7 +106,7 @@ tls=`cat<<EOF
       "id": "${uuid}",
       "aid": "64",
       "net": "ws",
-      "path": "/endka@u=${user}&p=${uid}",
+      "path": "/endka@u=${user}&p=${uid}&",
       "type": "none",
       "host": "",
       "tls": "tls"
@@ -121,7 +121,7 @@ none=`cat<<EOF
       "id": "${uuid}",
       "aid": "64",
       "net": "ws",
-      "path": "/endka@u=${user}&p=${uid}",
+      "path": "/endka@u=${user}&p=${uid}&",
       "type": "none",
       "host": "${domain}",
       "tls": "none"
@@ -143,7 +143,7 @@ echo -e "id             : ${uuid}"
 echo -e "alterId        : 64"
 echo -e "Security       : auto"
 echo -e "network        : ws"
-echo -e "path           : /endka@u=${user}&p=${uid}"
+echo -e "path           : /endka@u=${user}&p=${uid}&"
 echo -e "================================="
 echo -e "link TLS       : ${vmesslink1}"
 echo -e "================================="
@@ -151,5 +151,5 @@ echo -e "link none TLS  : ${vmesslink2}"
 echo -e "=================================" | lolcat
 echo -e "Created        : $now"
 echo -e "Expired On     : $exp"
-echo -e "=================================" lolcat
+echo -e "=================================" | lolcat
 echo -e "AutoScript By Endka"
