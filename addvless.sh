@@ -120,5 +120,5 @@ echo -e "link none TLS  : ${vlesslink2}"
 echo -e "=================================" | lolcat
 echo -e "Created        : $now"
 echo -e "Expired On     : $exp"
-echo -e "=================================" | lolcat
+echo -e "=================================" lolcat
 echo -e "AutoScript By Endka"
