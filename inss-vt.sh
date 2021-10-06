@@ -126,14 +126,14 @@ wget -O renewtr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/re
 wget -O xp-ws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp-ws.sh"
 wget -O xp-vless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp-vless.sh"
 wget -O certv2ray "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cert.sh"
-wget -O addtrgo "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/addtrgo.sh"
-wget -O deltrgo "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/deltrgo.sh"
-wget -O cektrgo "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cektrgo.sh"
-wget -O xp-trgo "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp-trgo.sh"
-chmod +x addtrgo
-chmod +x deltrgo
-chmod +x cektrgo
-chmod +x xp-trgo
+wget -O add-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/add-tr.sh"
+wget -O del-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/del-tr.sh"
+wget -O cek-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cek-tr.sh"
+wget -O xp-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp-tr.sh"
+chmod +x add-tr
+chmod +x del-tr
+chmod +x cek-tr
+chmod +x xp-tr
 chmod +x addws
 chmod +x addvless
 chmod +x delws
