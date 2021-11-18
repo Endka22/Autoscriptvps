@@ -126,20 +126,20 @@ chmod +x add-tr
 chmod +x del-tr
 chmod +x cek-tr
 chmod +x xp-tr
-chmod +x addws
-chmod +x addvless
-chmod +x delws
-chmod +x delvless
+chmod +x add-xr
+chmod +x add-xvless
+chmod +x del-xr
+chmod +x del-xvless
 chmod +x cekws
 chmod +x cekvless
 chmod +x renewws
 chmod +x renewtr
 chmod +x renewvless
-chmod +x xp-ws
-chmod +x xp-vless
+chmod +x xp-xr
+chmod +x xp-xvless
 chmod +x certv2ray
 cd
 mv /root/domain /etc/v2ray
-echo "59 23 * * * root xp-ws" >> /etc/crontab
+echo "59 23 * * * root xp-xr" >> /etc/crontab
 echo "59 23 * * * root xp-trgo" >> /etc/crontab
-echo "59 23 * * * root xp-vless" >> /etc/crontab
+echo "59 23 * * * root xp-xvless" >> /etc/crontab
