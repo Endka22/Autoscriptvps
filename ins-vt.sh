@@ -13,7 +13,7 @@ chronyc sourcestats -v
 chronyc tracking -v
 date
 # install v2ray
-wget https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/go.sh && chmod +x go.sh && ./go.sh
+wget https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xray.sh && chmod +x xray.sh && ./xray.sh
 rm -f /root/go.sh
 # ambil versi trojan-go terbaru
 latest_version="$(curl -s "https://api.github.com/repos/p4gefau1t/trojan-go/releases" | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
