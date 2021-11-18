@@ -35,88 +35,75 @@ chmod +x /root/.acme.sh/acme.sh
 /root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
 uuid=$(cat /proc/sys/kernel/random/uuid)
-cat > /etc/trojan-go/config.json << EOF
+cat <<EOF > /etc/trojan/config.json
 {
-  "run_type": "server",
-  "local_addr": "127.0.0.1",
-  "local_port": 443,
-  "remote_addr": "127.0.0.1",
-  "remote_port": 80,
-  "log_level": 1,
-  "log_file": "/var/log/trojan-go/trojan-go.log",
-  "password": [
-    "$uuid"
-
-  ],
-  "disable_http_check": true,
-  "udp_timeout": 60,
-  "ssl": {
-    "verify": true,
-    "verify_hostname": true,
-    "cert": "/etc/v2ray/v2ray.crt",
-    "key": "/etc/v2ray/v2ray.key",
-    "cipher": "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384",
-    "cipher_tls13": "TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384",
-    "prefer_server_cipher": true,
-    "alpn": [
-      "http/1.1"
+    "run_type": "server",
+    "local_addr": "0.0.0.0",
+    "local_port": 443,
+    "remote_addr": "127.0.0.1",
+    "remote_port": 80,
+    "password": [
+        "password"
     ],
-    "session_ticket": true,
-    "reuse_session": true,
-    "plain_http_response": "",
-    "fallback_addr": "",
-    "fallback_port": 81,
-    "fingerprint": ""
-  },
-  "tcp": {
-    "no_delay": true,
-    "keep_alive": true,
-    "prefer_ipv4": false
-  },
-  "transport_plugin": {
-    "enabled": true,
-    "type": "plaintext"
-  },
-  "websocket": {
-    "enabled": true,
-    "path": "/Trojan-go"
-  }
+    "log_level": 1,
+    "ssl": {
+        "cert": "/etc/v2ray/v2ray.crt",
+        "key": "/etc/v2ray/v2ray.key",
+        "key_password": "",
+        "cipher": "ECDHE-ECDSA-AES128-GCM-SHA256:ECDHE-RSA-AES128-GCM-SHA256:ECDHE-ECDSA-AES256-GCM-SHA384:ECDHE-RSA-AES256-GCM-SHA384:ECDHE-ECDSA-CHACHA20-POLY1305:ECDHE-RSA-CHACHA20-POLY1305:DHE-RSA-AES128-GCM-SHA256:DHE-RSA-AES256-GCM-SHA384",
+        "cipher_tls13": "TLS_AES_128_GCM_SHA256:TLS_CHACHA20_POLY1305_SHA256:TLS_AES_256_GCM_SHA384",
+        "prefer_server_cipher": true,
+        "alpn": [
+            "http/1.1"
+        ],
+        "alpn_port_override": {
+            "h2": 81
+        },
+        "reuse_session": true,
+        "session_ticket": false,
+        "session_timeout": 600,
+        "plain_http_response": "",
+        "curves": "",
+        "dhparam": ""
+    },
+    "tcp": {
+        "prefer_ipv4": false,
+        "no_delay": true,
+        "keep_alive": true,
+        "reuse_port": false,
+        "fast_open": false,
+        "fast_open_qlen": 20
+    },
+    "mysql": {
+        "enabled": false,
+        "server_addr": "127.0.0.1",
+        "server_port": 3306,
+        "database": "trojan",
+        "username": "trojan",
+        "password": "",
+        "key": "",
+        "cert": "",
+        "ca": ""
+    }
 }
 EOF
-cat <<EOF > /etc/trojan-go/uuid.txt
-$uuid
-EOF
-
-# service trojan-go
-cat > "/etc/systemd/system/trojan-go.service" << EOF
+cat <<EOF> /etc/systemd/system/trojan.service
 [Unit]
-Description=trojan-go
-Documentation=https://github.com/p4gefau1t/trojan-go
-After=network.target nss-lookup.target
-
+Description=Trojan
+Documentation=https://trojan-gfw.github.io/trojan/
 [Service]
 Type=simple
-StandardError=journal
-PIDFile=/etc/trojan-go/trojan-go.pid
-CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
-AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
-NoNewPrivileges=true
-ExecStart=/etc/trojan-go/trojan-go -config /etc/trojan-go/config.json
-ExecReload=
-ExecStop=/etc/trojan-go/trojan-go
-LimitNPROC=10000
-LimitNOFILE=1000000
-Restart=on-failure
-RestartSec=1s
-
+ExecStart=/usr/local/bin/trojan -c /etc/trojan/config.json -l /var/log/trojan.log
+Type=simple
+KillMode=process
+Restart=no
+RestartSec=42s
 [Install]
 WantedBy=multi-user.target
 EOF
-
-cat <<EOF > /etc/trojan-go/uuid.txt
+cat <<EOF > /etc/trojan/uuid.txt
 $uuid
 EOF
-
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 443 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m tcp -p tcp --dport 80 -j ACCEPT
 iptables -I INPUT -m state --state NEW -m udp -p udp --dport 443 -j ACCEPT
@@ -126,10 +113,10 @@ iptables-restore -t < /etc/iptables.up.rules
 netfilter-persistent save
 netfilter-persistent reload
 systemctl daemon-reload
-systemctl enable trojan-go.service
-systemctl stop trojan-go.service
-systemctl start trojan-go.service
-systemctl restart nginx
+systemctl restart trojan
+systemctl enable trojan
+systemctl restart v2ray
+systemctl enable v2ray
 cd /usr/bin
 wget -O addws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/addws.sh"
 wget -O addvless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/addvless.sh"
@@ -143,14 +130,14 @@ wget -O renewtr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/re
 wget -O xp-ws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp-ws.sh"
 wget -O xp-vless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp-vless.sh"
 wget -O certv2ray "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cert.sh"
-wget -O addtrgo "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/addtrgo.sh"
-wget -O deltrgo "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/deltrgo.sh"
-wget -O cektrgo "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cektrgo.sh"
-wget -O xp-trgo "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp-trgo.sh"
-chmod +x addtrgo
-chmod +x deltrgo
-chmod +x cektrgo
-chmod +x xp-trgo
+wget -O add-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/add-tr.sh"
+wget -O del-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/del-tr.sh"
+wget -O cek-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cek-tr.sh"
+wget -O xp-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp-tr.sh"
+chmod +x add-tr
+chmod +x del-tr
+chmod +x cek-tr
+chmod +x xp-tr
 chmod +x addws
 chmod +x addvless
 chmod +x delws
