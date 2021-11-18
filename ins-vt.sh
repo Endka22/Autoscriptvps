@@ -14,26 +14,14 @@ chronyc tracking -v
 date
 # install v2ray
 wget https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xray.sh && chmod +x xray.sh && ./xray.sh
-rm -f /root/go.sh
-# ambil versi trojan-go terbaru
-latest_version="$(curl -s "https://api.github.com/repos/p4gefau1t/trojan-go/releases" | grep tag_name | sed -E 's/.*"v(.*)".*/\1/' | head -n 1)"
-echo "The latest version of trojan-go is ${latest_version}"
-trojango_link="https://github.com/p4gefau1t/trojan-go/releases/download/v${latest_version}/trojan-go-linux-amd64.zip"
-mkdir -p "/usr/bin/trojan-go"
-mkdir -p "/etc/trojan-go"
-cd /etc/trojan-go
-curl -sL "${trojango_link}" -o trojan-go.zip
-unzip -q trojan-go.zip && rm -rf trojan-go.zip
-chmod +x /etc/trojan-go/trojan-go
-mkdir /var/log/trojan-go/
-touch /etc/trojan-go/akun.conf
-touch /etc/trojan-go/trojan-go.pid
-touch /var/log/trojan-go/trojan-go.log
+rm -f /root/xray.sh
+bash -c "$(wget -O- https://raw.githubusercontent.com/trojan-gfw/trojan-quickstart/master/trojan-quickstart.sh)"
 mkdir /root/.acme.sh
 curl https://acme-install.netlify.app/acme.sh -o /root/.acme.sh/acme.sh
 chmod +x /root/.acme.sh/acme.sh
 /root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
+service squid start
 uuid=$(cat /proc/sys/kernel/random/uuid)
 cat <<EOF > /etc/trojan/config.json
 {
