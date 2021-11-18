@@ -106,17 +106,17 @@ systemctl enable trojan
 systemctl restart v2ray
 systemctl enable v2ray
 cd /usr/bin
-wget -O addws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/addws.sh"
-wget -O addvless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/addvless.sh"
-wget -O delws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/delws.sh"
-wget -O delvless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/delvless.sh"
+wget -O addws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/add-xr.sh"
+wget -O addvless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/add-xvless.sh"
+wget -O delws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/del-xr.sh"
+wget -O delvless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/del-xvless.sh"
 wget -O cekws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cekws.sh"
 wget -O cekvless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cekvless.sh"
 wget -O renewws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/renewws.sh"
 wget -O renewvless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/renewvless.sh"
 wget -O renewtr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/renewtr.sh"
-wget -O xp-ws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp-ws.sh"
-wget -O xp-vless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp-vless.sh"
+wget -O xp-ws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp-xr.sh"
+wget -O xp-vless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp-xvless.sh"
 wget -O certv2ray "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cert.sh"
 wget -O add-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/add-tr.sh"
 wget -O del-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/del-tr.sh"
