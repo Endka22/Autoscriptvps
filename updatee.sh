@@ -21,48 +21,22 @@ echo "Telegram t.me/Endka22"
 rm -f setup.sh
 exit 0
 fi
-versi=$(cat /home/ver)
-if [[ $versi == 1.2 ]]; then
-echo "You Have The Latest Version"
-exit 0
-fi
 echo "Start Update"
 cd /usr/bin
-wget -O menu "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/menu.sh"
-wget -O usernew "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/usernew.sh"
-wget -O trial "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/trial.sh"
-wget -O change-port "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/change.sh"
-wget -O port-ovpn "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/port-ovpn.sh"
-wget -O port-ssl "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/port-ssl.sh"
-wget -O port-wg "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/port-wg.sh"
-wget -O port-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/port-tr.sh"
-wget -O port-sstp "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/port-sstp.sh"
-wget -O port-squid "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/port-squid.sh"
-wget -O port-ws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/port-ws.sh"
-wget -O port-vless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/port-vless.sh"
-wget -O wbmn "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/webmin.sh"
-wget -O xp "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp.sh"
-wget -O limit-speed "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/limit-speed.sh"
-wget -O add-sstp "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/add-sstp.sh"
-wget -O add-ws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/add-ws.sh"
-wget -O add-vless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/add-vless.sh"
-wget -O add-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/add-tr.sh"
-chmod +x change-port
-chmod +x port-ovpn
-chmod +x port-ssl
-chmod +x port-wg
-chmod +x port-sstp
-chmod +x port-tr
-chmod +x port-squid
-chmod +x port-ws
-chmod +x port-vless
-chmod +x wbmn
-chmod +x xp
-chmod +x limit-speed
-echo "0 5 * * * root clear-log && reboot" > /etc/crontab
-echo "0 0 * * * root xp" > /etc/crontab
-cd
-echo "1.2" > /home/ver
+wget -O add-xr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/add-xr.sh"
+wget -O add-xvless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/add-xvless.sh"
+wget -O del-xr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/del-xr.sh"
+wget -O del-xvless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/del-xvless.sh"
+wget -O xp-xr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp-xr.sh"
+wget -O xp-xvless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp-xvless.sh"
+chmod +x add-xr
+chmod +x add-xvless
+chmod +x del-xr
+chmod +x del-xvless
+chmod +x xp-xr
+chmod +x xp-xvless
+echo "0 0 * * * root xp-xr" > /etc/crontab
+echo "0 0 * * * root xp-xvless" > /etc/crontab
 clear
 echo " Fix minor Bugs"
 echo " Now You Can Change Port Of Some Services"
