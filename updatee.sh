@@ -35,8 +35,8 @@ chmod +x del-xr
 chmod +x del-xvless
 chmod +x xp-xr
 chmod +x xp-xvless
-echo "0 0 * * * root xp-xr" > /etc/crontab
-echo "0 0 * * * root xp-xvless" > /etc/crontab
+echo "0 0 * * * root xp-xr" >> /etc/crontab
+echo "0 0 * * * root xp-xvless" >> /etc/crontab
 clear
 echo " Fix minor Bugs"
 echo " Now You Can Change Port Of Some Services"
