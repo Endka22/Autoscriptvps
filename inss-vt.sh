@@ -19,9 +19,13 @@ touch /etc/trojan/akun.conf
 wget https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/go.sh && chmod +x go.sh && ./go.sh
 rm -f /root/go.sh
 bash -c "$(wget -O- https://raw.githubusercontent.com/trojan-gfw/trojan-quickstart/master/trojan-quickstart.sh)"
+#cert
+mail=$(</dev/urandom tr -dc a-z0-9 | head -c4)
+email=${mail}@gmail.com
 mkdir /root/.acme.sh
 curl https://acme-install.netlify.app/acme.sh -o /root/.acme.sh/acme.sh
 chmod +x /root/.acme.sh/acme.sh
+/root/.acme.sh/acme.sh --register-account -m $email
 /root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
 ~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
 service squid start
