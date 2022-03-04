@@ -36,7 +36,7 @@ rm -f setup.sh
 exit 0
 fi
 clear
-if [ -f "/etc/v2ray/domain]; then
+if [ -f "/etc/v2ray/domain"]; then
 echo "Script Already Installed"
 exit 0
 fi
