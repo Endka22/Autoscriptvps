@@ -1,26 +1,27 @@
 #!/bin/bash
-if [ "${EUID}" -ne 0 ]; then
-		echo "You need to run this script as root"
-		exit 1
+MYIP=$(wget -qO- ipinfo.io/ip);
+echo "Checking VPS"
+CEKEXPIRED () {
+    today=$(date -d +1day +%Y-%m-%d)
+    Exp1=$(curl -sS https://raw.githubusercontent.com/Endka22/aksessc/main/IP.txt | grep $MYIP | awk '{print $3}')
+    if [[ $today < $Exp1 ]]; then
+    echo -e "\e[32mSTATUS SCRIPT AKTIF...\e[0m"
+    else
+    echo -e "\e[31mSCRIPT ANDA EXPIRED!\e[0m";
+    echo -e "\e[31mRenew IP dulu ya.... #\e[0m"
+    exit 0
 fi
-if [ "$(systemd-detect-virt)" == "openvz" ]; then
-		echo "OpenVZ is not supported"
-		exit 1
-fi
-red='\e[1;31m'
-green='\e[0;32m'
-NC='\e[0m'
-MYIP=$(wget -qO- ifconfig.co);
-IZIN=$( curl http://akses.vmess.my.id:81/aksesku | grep $MYIP )
+}
+IZIN=$(curl -sS https://raw.githubusercontent.com/Endka22/aksessc/main/IP.txt | awk '{print $4}' | grep $MYIP)
 if [ $MYIP = $IZIN ]; then
-echo -e "${green}Permission Accepted...${NC}"
+echo -e "\e[32mPermission Accepted...\e[0m"
+CEKEXPIRED
 else
-echo -e "${red}Permission Denied!${NC}";
-echo "Please Contact Admin"
-echo "Telegram t.me/Endka22"
-rm -f setup.sh
+echo -e "\e[31mPermission Denied!\e[0m";
+echo -e "\e[31mDaftarkan IP Anda Terlebih Dahulu #\e[0m"
 exit 0
 fi
+clear
 echo "Start Update"
 cd /usr/bin
 wget -O add-xr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/add-xr.sh"
