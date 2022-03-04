@@ -188,13 +188,6 @@ echo "   - XRAY VLESS XTLS SPLICE  : 443"  | tee -a log-install.txt
 echo "   - XRAY VLESS XTLS DIRECT  : 443"  | tee -a log-install.txt
 echo "   - XRAY VLESS WS TLS       : 443"  | tee -a log-install.txt
 echo "   - XRAY TROJAN TLS         : 443"  | tee -a log-install.txt
-echo "   - XRAY VMESS TLS          : 443"  | tee -a log-install.txt
-echo "   - V2RAY VLESS TLS SPLICE  : 8080" | tee -a log-install.txt
-echo "   - V2RAY VLESS TLS DIRECT  : 8080" | tee -a log-install.txt
-echo "   - V2RAY VLESS WS TLS      : 8080" | tee -a log-install.txt
-echo "   - V2RAY TROJAN TLS        : 8080" | tee -a log-install.txt
-echo "   - V2RAY VMESS TLS         : 8080" | tee -a log-install.txt
-echo "   - Trojan-GFW              : 443" | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
 echo "   >>> Server Information & Other Features"  | tee -a log-install.txt
 echo "   - Timezone                 : Asia/Jakarta (GMT +7)"  | tee -a log-install.txt
