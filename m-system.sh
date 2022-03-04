@@ -54,13 +54,13 @@ echo -e ""
 read -p " Select menu : " opt
 echo -e ""
 case $opt in
-1) clear ; m-domain ; exit ;;
+1) clear ; add-host ; exit ;;
 2) clear ; port-change ; exit ;;
-3) clear ; autobackup-setup ; exit ;; #set.br
+3) clear ; autobackup ; exit ;; #set.br
 4) clear ; backup ; exit ;; #set.br
-5) clear ; backup-info ; exit ;; #set.br
+5) clear ; backup-info ; exit ;;
 6) clear ; restore ; exit ;; #set.br
-7) clear ; m-webmin ; exit ;;
+7) clear ; wbmn ; exit ;;
 8) clear ; limit-speed ; exit ;; #set.br
 9) clear ; ram ; exit ;;
 10) clear ; speedtest ; exit ;;
