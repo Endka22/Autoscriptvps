@@ -49,7 +49,6 @@ echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━�
 echo "" 
 echo -e "$green               Telegram:$NC $red@Endka22               $NC"
 echo -e "$green        Script Version:$NC $red VERSI 2.10          $NC"
-echo ''
 echo -e "$green              Proses akan mulai dalam 5 detik!            $NC"
 echo -e "\e[33m ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 5
