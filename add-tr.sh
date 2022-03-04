@@ -57,13 +57,11 @@ clear
 echo -e ""
 echo -e "=============-Trojan-============" | lolcat
 echo -e "Remarks        : ${user}"
-echo -e "CITY           : $CITY"
-echo -e "ISP            : $ISP"
-echo -e "Host/IP        : ${domain}"
+echo -e "Host/IP        : ${domain}/${MYIP}"
 echo -e "port           : ${tr}"
 echo -e "Key            : ${user}"
 echo -e "link1          : ${trojanlink}"
-echo -e "link2			: ${trojanlink2}"
+echo -e "link2		: ${trojanlink2}"
 echo -e "=================================" | lolcat
 echo -e "Expired On     : $exp"
 echo -e "AutoScript By Endka"
