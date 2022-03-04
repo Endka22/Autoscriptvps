@@ -44,7 +44,7 @@ ORANGE='\033[0;33m'
 LIGHT='\033[0;37m'
 # VPS Information
 #Domain
-domain=$(cat /etc/rare/xray/domain)
+domain=$(cat /etc/v2ray/domain)
 #Status certificate
 modifyTime=$(stat $HOME/.acme.sh/${domain}_ecc/${domain}.key | sed -n '7,6p' | awk '{print $2" "$3" "$4" "$5}')
 modifyTime1=$(date +%s -d "${modifyTime}")
