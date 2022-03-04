@@ -353,7 +353,7 @@ wget -O updatee "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/up
 wget -O auto-reboot "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/auto-reboot.sh"
 wget -O clear-log "https://raw.githubusercontent.com/Endka22/Autosc/main/clear-log.sh"
 # menu system
-wget -O m-system "https://raw.githubusercontent.com/Endka22/aiueo/main/m-system.sh"
+wget -O m-system "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/m-system.sh"
 wget -O info-menu "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/info-menu.sh"
 wget -O vpsinfo "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/vpsinfo.sh"
 wget -O status "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/status.sh"
