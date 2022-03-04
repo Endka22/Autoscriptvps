@@ -83,7 +83,7 @@ secs_to_human() {
 }
 start=$(date +%s)
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
-echo -e "$green     waiting..... $NC"
+echo -e "$green     Tunggu sebentar $NC"
 echo -e "$gree Process Update & Upgrade Sedang Dijalankan  $NC"
 echo -e "\e[33m━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━\033[0m"
 sleep 2
