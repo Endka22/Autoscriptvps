@@ -1,8 +1,4 @@
 #!/bin/bash
-RED='\e[1;31m'
-GREEN='\e[0;32m'
-BLUE='\e[0;34m'
-NC='\e[0m'
 MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
 CEKEXPIRED () {
@@ -26,17 +22,13 @@ echo -e "\e[31mDaftarkan IP Anda Terlebih Dahulu #\e[0m"
 exit 0
 fi
 clear
-echo start
-sleep 0.5
-source /var/lib/premium-script/ipvps.conf
-domain=$IP
-systemctl stop v2ray
-systemctl stop v2ray@none
-/root/.acme.sh/acme.sh --issue -d $domain --standalone -k ec-256
-~/.acme.sh/acme.sh --installcert -d $domain --fullchainpath /etc/v2ray/v2ray.crt --keypath /etc/v2ray/v2ray.key --ecc
-systemctl start v2ray
-systemctl start v2ray@none
-echo Done
-sleep 0.5
-clear 
-neofetch
+echo ""
+echo ""
+echo -e "[ \033[32mInfo\033[0m ] Clear RAM Cache"
+echo 1 > /proc/sys/vm/drop_caches
+sleep 3
+echo -e "[ \033[32mok\033[0m ] Cache cleared"
+echo ""
+echo "Back to menu in 2 sec "
+sleep 2
+menu

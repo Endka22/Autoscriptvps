@@ -1,17 +1,28 @@
 #!/bin/bash
-red='\e[1;31m'
-green='\e[0;32m'
+RED='\e[1;31m'
+GREEN='\e[0;32m'
+BLUE='\e[0;34m'
 NC='\e[0m'
-ISP=$(curl -s ipinfo.io/org | cut -d " " -f 2-10 )
-CITY=$(curl -s ipinfo.io/city )
 MYIP=$(wget -qO- ipinfo.io/ip);
 echo "Checking VPS"
-IZIN=$( curl http://akses.vmess.my.id:81/aksesku | grep $MYIP )
+CEKEXPIRED () {
+    today=$(date -d +1day +%Y-%m-%d)
+    Exp1=$(curl -sS https://raw.githubusercontent.com/Endka22/aksessc/main/IP.txt | grep $MYIP | awk '{print $3}')
+    if [[ $today < $Exp1 ]]; then
+    echo -e "\e[32mSTATUS SCRIPT AKTIF...\e[0m"
+    else
+    echo -e "\e[31mSCRIPT ANDA EXPIRED!\e[0m";
+    echo -e "\e[31mRenew IP dulu ya.... #\e[0m"
+    exit 0
+fi
+}
+IZIN=$(curl -sS https://raw.githubusercontent.com/Endka22/aksessc/main/IP.txt | awk '{print $4}' | grep $MYIP)
 if [ $MYIP = $IZIN ]; then
-echo -e "${green}Permission Accepted...${NC}"
+echo -e "\e[32mPermission Accepted...\e[0m"
+CEKEXPIRED
 else
-echo -e "${red}Permission Denied!${NC}";
-echo "Only For Premium Users"
+echo -e "\e[31mPermission Denied!\e[0m";
+echo -e "\e[31mDaftarkan IP Anda Terlebih Dahulu #\e[0m"
 exit 0
 fi
 clear
@@ -34,11 +45,14 @@ until [[ $user =~ ^[a-zA-Z0-9_]+$ && ${user_EXISTS} == '0' ]]; do
 		fi
 	done
 read -p "Expired (days): " masaaktif
-sed -i '/"'""$uuid""'"$/a\,"'""$user""'"' /etc/trojan/config.json
+sed -i '/"'""password""'"$/a\,"'""$user""'"' /etc/trojan/config.json
 exp=`date -d "$masaaktif days" +"%Y-%m-%d"`
 echo -e "### $user $exp" >> /etc/trojan/akun.conf
 systemctl restart trojan
+echo -e "\033[32m[Info]\033[0m Trojan-GFW Start Successfully !"
+sleep 2
 trojanlink="trojan://${user}@${domain}:${tr}"
+trojanlink2="trojan://${user}:@${MYIP}:${tr}"
 clear
 echo -e ""
 echo -e "=============-Trojan-============" | lolcat
@@ -48,7 +62,8 @@ echo -e "ISP            : $ISP"
 echo -e "Host/IP        : ${domain}"
 echo -e "port           : ${tr}"
 echo -e "Key            : ${user}"
-echo -e "link           : ${trojanlink}"
+echo -e "link1          : ${trojanlink}"
+echo -e "link2			: ${trojanlink2}"
 echo -e "=================================" | lolcat
 echo -e "Expired On     : $exp"
 echo -e "AutoScript By Endka"
