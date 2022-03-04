@@ -352,6 +352,19 @@ wget -O vls "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/vls.sh
 wget -O updatee "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/updatee.sh"
 wget -O auto-reboot "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/auto-reboot.sh"
 wget -O clear-log "https://raw.githubusercontent.com/Endka22/Autosc/main/clear-log.sh"
+# menu system
+wget -O m-system "https://raw.githubusercontent.com/Endka22/aiueo/main/m-system.sh"
+wget -O info-menu "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/info-menu.sh"
+wget -O vpsinfo "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/vpsinfo.sh"
+wget -O status "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/status.sh"
+wget -O bbr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/bbr.sh"
+wget -O auto-reboot "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/auto-reboot.sh"
+wget -O clear-log "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/clear-log.sh"
+wget -O clearcache "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/clearcache.sh"
+wget -O restart "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/restart.sh"
+wget -O bw "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/bw.sh"
+wget -O resett "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/resett.sh"
+wget -O kernel-updt "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/kernel-updt.sh"
 chmod +x add-host
 chmod +x menu
 chmod +x usernew
@@ -381,7 +394,7 @@ chmod +x port-ws
 chmod +x port-vless
 chmod +x wbmn
 chmod +x xp
-chmod +x kernel-updt
+chmod +x m-system
 chmod +x tessh
 chmod +x ssstp
 chmod +x sssr
@@ -391,8 +404,18 @@ chmod +x trj
 chmod +x wss
 chmod +x vls
 chmod +x updatee
+chmod +x clear-log
+chmod +x vpsinfo
+chmod +x status
+chmod +x about
+chmod +x bbr
 chmod +x auto-reboot
 chmod +x clear-log
+chmod +x clearcache
+chmod +x restart
+chmod +x bw
+chmod +x resett
+chmod +x kernel-updt
 echo "0 0 * * * root clear-log && reboot" >> /etc/crontab
 echo "0 0 * * * root xp" >> /etc/crontab
 # remove unnecessary files
