@@ -38,6 +38,13 @@ chmod +x bckp
 chmod +x restore
 chmod +x strt
 chmod +x limit-speed
+#enc
+shc -r -f autobackup -o autobackup
+shc -r -f backup -o backup
+shc -r -f bckp -o bckp
+shc -r -f restore -o restore
+shc -r -f strt -o strt
+shc -r -f limit-speed -o limit-speed
 cd
 rm -f /root/set-br.sh
 
