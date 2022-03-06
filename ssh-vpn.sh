@@ -339,7 +339,7 @@ wget -O port-squid "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main
 wget -O port-ws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/port-ws.sh"
 wget -O port-vless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/port-vless.sh"
 wget -O wbmn "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/webmin.sh"
-wget -O xp "https://raw.githubusercontent.com/Endka22/Autosc/main/xp.sh"
+wget -O xp "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp.sh"
 wget -O kernel-updt "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/kernel-update.sh"
 wget -O tessh "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/tessh.sh"
 wget -O ssstp "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/ssstp.sh"
@@ -351,7 +351,7 @@ wget -O wss "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/wss.sh
 wget -O vls "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/vls.sh"
 wget -O updatee "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/updatee.sh"
 wget -O auto-reboot "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/auto-reboot.sh"
-wget -O clear-log "https://raw.githubusercontent.com/Endka22/Autosc/main/clear-log.sh"
+wget -O clear-log "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/clear-log.sh"
 # menu system
 wget -O m-system "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/m-system.sh"
 wget -O info-menu "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/info-menu.sh"
