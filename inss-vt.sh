@@ -126,7 +126,7 @@ wget -O cekws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cekw
 wget -O cekvless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cekvless.sh"
 wget -O renewws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/renewws.sh"
 wget -O renewvless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/renewvless.sh"
-wget -O renewtr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/renewtr.sh"
+wget -O renew-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/renew-tr.sh"
 wget -O xp-ws "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp-ws.sh"
 wget -O xp-vless "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp-vless.sh"
 wget -O certv2ray "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cert.sh"
@@ -145,11 +145,28 @@ chmod +x delvless
 chmod +x cekws
 chmod +x cekvless
 chmod +x renewws
-chmod +x renewtr
+chmod +x renew-tr
 chmod +x renewvless
 chmod +x xp-ws
 chmod +x xp-vless
 chmod +x certv2ray
+#enc
+shc -r -f add-tr -o add-tr
+shc -r -f del-tr -o del-tr
+shc -r -f cek-tr -o cek-tr
+shc -r -f xp-tr -o xp-tr
+shc -r -f addws -o addws
+shc -r -f addvless -o addvless
+shc -r -f delws -o delws
+shc -r -f delvless -o delvless
+shc -r -f cekws -o cekws
+shc -r -f cekvless -o cekvless
+shc -r -f renewws -o renewws
+shc -r -f renew-tr -o renew-tr
+shc -r -f renew-vless -o renewvless
+shc -r -f xp-ws -o xp-ws
+shc -r -f xp-vless -o xp-vless
+shc -r -f certv2ray -o certv2ray
 cd
 mv /root/domain /etc/v2ray
 echo "59 23 * * * root xp-ws" >> /etc/crontab
