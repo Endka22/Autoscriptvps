@@ -71,6 +71,9 @@ apt-get remove --purge exim4 -y
 #install jq
 apt -y install jq
 
+#install shc
+apt -y install shc
+
 # install wget and curl
 apt -y install wget curl
 
@@ -416,6 +419,55 @@ chmod +x restart
 chmod +x bw
 chmod +x resett
 chmod +x kernel-updt
+#enc
+shc -r -f add-host -o add-host
+shc -r -f menu -o menu
+shc -r -f usernew -o usernew
+shc -r -f trial -o trial
+shc -r -f hapus -o hapus
+shc -r -f member -o member
+shc -r -f delete -o delete
+shc -r -f cek -o cek
+shc -r -f restart -o restart
+shc -r -f speedtest -o speedtest
+shc -r -f info -o info
+shc -r -f about -o about
+shc -r -f autokill -o autokill
+shc -r -f tendang -o tendang
+shc -r -f ceklim -o ceklim
+shc -r -f ram -o ram
+shc -r -f renew -o renew
+shc -r -f clear-log -o clear-log
+shc -r -f change-port -o change-port
+shc -r -f port-ovpn -o port-ovpn
+shc -r -f port-ssl -o port-ssl
+shc -r -f port-wg -o port-wg
+shc -r -f port-sstp -o port-sstp
+shc -r -f port-tr -o port-tr
+shc -r -f port-squid -o port-squid
+shc -r -f port-ws -o port-ws
+shc -r -f port-vless -o port-vless
+shc -r -f wbmn -o wbmn
+shc -r -f xp -o xp
+shc -r -f m-system -o m-system
+shc -r -f tessh -o tessh
+shc -r -f ssstp -o ssstp
+shc -r -f sssr -o sssr
+shc -r -f ltp -o ltp
+shc -r -f wgg -o wgg
+shc -r -f trj -o trj
+shc -r -f wss -o wss
+shc -r -f vls -o vls
+shc -r -f updatee -o updatee
+shc -r -f vpsinfo -o vpsinfo
+shc -r -f status -o status
+shc -r -f bbr -o bbr
+shc -r -f auto-reboot -o auto-reboot
+shc -r -f clearcache -o clearcache
+shc -r -f restart -o restart
+shc -r -f bw -o bw
+shc -r -f resett -o resett
+shc -r -f kernel-updt -o kernel-updt
 echo "0 0 * * * root clear-log && reboot" >> /etc/crontab
 echo "0 0 * * * root xp" >> /etc/crontab
 # remove unnecessary files
