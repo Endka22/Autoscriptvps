@@ -52,7 +52,7 @@ systemctl restart trojan
 echo -e "\033[32m[Info]\033[0m Trojan-GFW Start Successfully !"
 sleep 2
 trojanlink="trojan://${user}@${domain}:${tr}"
-trojanlink2="trojan://${user}:@${MYIP}:${tr}"
+trojanlink2="trojan://${user}@${MYIP}:${tr}"
 clear
 echo -e ""
 echo -e "=============-Trojan-============" | lolcat
