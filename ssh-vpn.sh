@@ -144,7 +144,7 @@ apt -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/Endka22/Autosc/main/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/nginx.conf"
 mkdir -p /home/vps/public_html
 wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/Endka22/Autos/main/vps.conf"
 /etc/init.d/nginx restart
@@ -192,7 +192,7 @@ echo "/usr/sbin/nologin" >> /etc/shells
 # install squid
 cd
 apt -y install squid3
-wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/Endka22/Autosc/main/squid3.conf"
+wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/squid3.conf"
 sed -i $MYIP2 /etc/squid/squid.conf
 
 # setting vnstat
@@ -317,7 +317,7 @@ cd /usr/bin
 wget -O add-host "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/add-host.sh"
 wget -O about "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/about.sh"
 wget -O menu "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/menu.sh"
-wget -O usernew "https://raw.githubusercontent.com/Endka22/Autosc/main/usernew.sh"
+wget -O usernew "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/usernew.sh"
 wget -O trial "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/trial.sh"
 wget -O hapus "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/hapus.sh"
 wget -O member "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/member.sh"
