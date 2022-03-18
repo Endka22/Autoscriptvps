@@ -82,6 +82,10 @@ apt-get install figlet -y
 apt-get install ruby -y
 gem install lolcat
 
+#set panel
+mkdir -p /etc/trojango/
+mkdir -p /etc/v2ray/user/
+
 # set time GMT +7
 ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
 
