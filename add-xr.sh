@@ -154,8 +154,11 @@ none=`cat<<EOF
       "tls": "none"
 }
 EOF`
+#cat>/etc/v2ray/user/$user-tls.json
+echo "{$uuid $uid" > /etc/v2ray/user/$user-tls.txt
 vmesslink1="vmess://$(echo $tls | base64 -w 0)"
 vmesslink2="vmess://$(echo $none | base64 -w 0)"
+#echo $vmesslink1 > /etc/v2ray/user/$user-tls.json
 systemctl start xray@vmess-$user
 systemctl enable xray@vmess-$user
 echo -e "\033[32m[Info]\033[0m Xray-Vmess Start Successfully !"
