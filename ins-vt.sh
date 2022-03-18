@@ -122,10 +122,12 @@ wget -O add-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/add
 wget -O del-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/del-tr.sh"
 wget -O cek-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/cek-tr.sh"
 wget -O xp-tr "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp-tr.sh"
+wget -O xp-trgo "https://raw.githubusercontent.com/Endka22/Autoscriptvps/main/xp-trgo.sh"
 chmod +x add-tr
 chmod +x del-tr
 chmod +x cek-tr
 chmod +x xp-tr
+chmod +x xp-trgo
 chmod +x add-xr
 chmod +x add-xvless
 chmod +x del-xr
