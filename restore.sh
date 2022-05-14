@@ -53,6 +53,8 @@ cp crontab /etc/
 cd /usr/local/etc/xray/backup/
 cp -r xray /usr/local/etc/
 strt
+rm -rf /usr/local/etc/backup
+rm -rf /usr/local/etc/xray
 rm -rf /root/backup
 rm -f backup.zip
 echo Done
