@@ -44,10 +44,14 @@ cp -r premium-script /var/lib/
 cp -r sstp /home/
 cp -r trojan /etc/
 cp -r v2ray /etc/
+cp xray /usr/local/etc/
+cp -r xray /usr/local/etc/
 cp vps.conf /etc/nginx/conf.d/
 cp -r shadowsocksr /usr/local/
 cp -r public_html /home/vps/
 cp crontab /etc/
+cd /usr/local/etc/xray/backup
+cp -r xray /usr/local/etc/
 strt
 rm -rf /root/backup
 rm -f backup.zip
