@@ -50,7 +50,7 @@ cp vps.conf /etc/nginx/conf.d/
 cp -r shadowsocksr /usr/local/
 cp -r public_html /home/vps/
 cp crontab /etc/
-cd /usr/local/etc/xray/backup
+cd /usr/local/etc/xray/backup/
 cp -r xray /usr/local/etc/
 strt
 rm -rf /root/backup
