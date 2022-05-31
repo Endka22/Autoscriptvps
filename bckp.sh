@@ -51,7 +51,7 @@ cp /etc/shadowsocks-libev/akun.conf backup/ss.conf
 cp -r /var/lib/premium-script/ backup/premium-script
 cp -r /home/sstp backup/sstp
 cp -r /etc/v2ray backup/v2ray
-cp -r /usr/local/etc/xray /backup/xray
+cp -r /usr/local/etc/xray backup/xray
 cp -r /etc/trojan backup/trojan
 cp /etc/nginx/conf.d/vps.conf backup/vps.conf
 cp -r /usr/local/shadowsocksr/ backup/shadowsocksr
